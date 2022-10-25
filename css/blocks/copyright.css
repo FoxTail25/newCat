@@ -1,0 +1,11 @@
+.copyright {
+    font-size: 12px;
+    color: var(--copyright-text-color);
+}
+
+@media (max-width: 700px){
+    .copyright {
+        font-size: 2vw;
+    }
+    
+}

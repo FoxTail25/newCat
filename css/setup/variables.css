@@ -1,0 +1,26 @@
+
+
+
+
+:root {
+    --head-boxShadow-color:black;
+    --main-bg-color: rgb(251, 219, 244);
+    --main-text-color:black;
+    --card-blur-color: #f8f7f774;
+    --card-like-color: #CE2724;
+    --btn-bg-color:rgb(194, 194, 194);
+    --btn-text-color:white;
+    --copyright-text-color: rgb(174, 170, 170);
+    --footer-bg-color: rgb(240, 240, 240);
+    --footer-boxShadow-color:black;
+    --socials-icon-color:black;
+    --socials-iconHover-color:blue;
+    --popUp-add-color:grey;
+    --form-color: #ECEFF1;
+    --text-main-color: #191414;
+    --text-secondary-color: #818b90;
+    --popup-checkBox-aceptColor: #0c31ed;
+    --outline-color: #CFD8DC;
+    --head-bg-color: rgb(240, 240, 240);
+    
+}

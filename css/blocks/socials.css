@@ -1,0 +1,16 @@
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.socials__link {
+    color: var(--socials-icon-color);
+    font-size: 25px;
+    transition: ease-in-out .3s;
+}
+.socials__link:hover {
+    color: var(--socials-iconHover-color);
+    /* font-size: 23px; */
+    transition: ease-in-out .3s;
+}
