@@ -1,7 +1,7 @@
 
 const cardContainer = document.querySelector('.cards'); // Контейнер, куда добавляем котиков из массива
 const btnAddCat = document.querySelector('#add') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
-// const btnClosePopup = document.querySelector('#popupClose') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
+// const btnClosePopup = document.querySelector('#popupClose') // кнопка на которую вешаем слушатель на закрытие ПопАпа для добавления нового котика
 const formCatAdd = document.querySelector('#popup-form-cat') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 
 function serializeForm(elements){ //функция проверки сборки данных из формы
@@ -30,28 +30,35 @@ function handelFormAddCat(e) {
     const dataFromForm = serializeForm(elementsFormCat) // запускаем функцию проверки формы
     
     console.log(dataFromForm)
-    cats.push(dataFromForm)
-          
-     const cardInstans = new Card(dataFromForm, '#card-template')// создать карточку из данных
-     const newCardElement = cardInstans.getElement();
-     cardContainer.append(newCardElement)// добавить карточку на страницу
-
-     popupAddCat.close() //закрываем попАп
-}
-
-
-// Добавляем котиков из массива
-cats.forEach(function(catData) {
+    api.addNewCat(dataFromForm)
+        .then(()=>{
+            createCat(dataFromForm)
+            popupAddCat.close() //закрываем попАп
+        })
+    }
     
-    const cardInstans = new Card(catData, '#card-template')
-    const newCardElement = cardInstans.getElement();
-    cardContainer.append(newCardElement)
-});
-
-// ПопАп /////////////////////////////////////////////////////////
+    api.getAllCats() // Получаем список котиков с сервера
+    .then(({ data })=> { // получаем массив с объектами
+        // console.log(data)
+        data.forEach(function (el){  
+            createCat(el)  // создаём карточку котика из каждого элемета массива
+        })
+    })
+    
+    function createCat(catData) {
+        
+        
+        const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
+        const newCardElement = cardInstans.getElement();
+        cardContainer.append(newCardElement)// добавить карточку на страницу
+    }
+    
+    // console.log(a)
+    
+    
+    // ПопАп /////////////////////////////////////////////////////////
 const popupAddCat = new Popup('popup-add-cats')
 popupAddCat.setEventListener();
-
 
 btnAddCat.addEventListener('click', ()=> popupAddCat.open())
 formCatAdd.addEventListener('submit', handelFormAddCat)
