@@ -68,7 +68,7 @@
                     
                 <input id='inputIdCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
                 <input type="number" class="form__input" name="age" placeholder="Возраст">
-                <input type="text" class="form__input" name="name" required placeholder="Имя">
+                <input id='inputNameCat' type="text" class="form__input" name="name" required placeholder="Имя">
                 <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
                 <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
                 <label class="form__checkbox-wrap">
@@ -81,7 +81,20 @@
             </form>
         </div>
     </div>
-
+    <!-- <div class="popup popup-login">
+        <div class="popup__container" >
+            <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
+            <h2 id="popupH2">Авторизация</h2>
+            <form class="form" id="popup-form-cat">
+                    
+                <input id='inputIdCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
+                <input type="number" class="form__input" name="age" placeholder="Возраст">
+            <input type="url" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
+                <button type="submit" class="form__btn btn">Войти</button>
+            </form>
+        </div>
+    </div> -->
+              
 
     <template id="card-template">
 
