@@ -2,7 +2,7 @@
 const cardContainer = document.querySelector('.cards'); // Контейнер, куда добавляем котиков из массива
 const btnAddCat = document.querySelector('#add') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 // const btnClosePopup = document.querySelector('#popupClose') 
-const formCatAdd = document.querySelector('#popup-form-cat') 
+const formCatAdd = document.querySelector('#popup-form-cat') //доступ к форме с данными
 
 function checkForm(elements) { //функция проверки сборки данных из формы
     const formData = {};
@@ -25,7 +25,7 @@ function checkForm(elements) { //функция проверки сборки д
 
 function handelFormAddCat(e) {
     e.preventDefault()
-    // собрать данные из формы
+    
     const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
     console.log(dataFromForm)
@@ -39,8 +39,7 @@ function handelFormAddCat(e) {
 }
 
 function handelFormRegCat(e) {
-    e.preventDefault()
-    // собрать данные из формы
+    e.preventDefault() // отменить действие по умолчанию
     const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
 
@@ -52,26 +51,28 @@ function handelFormRegCat(e) {
 
     // console.log(dataFromForm)
 
-    console.log("отправка...")
+    // console.log(dataFromForm.id)
 
     api.updateCat(dataFromForm, dataFromForm.id)
-        .then(() => {
-            createCat(dataFromForm)
-        })
-    popupCat.close() //закрываем попАп
+        // .then(() => {
+        //     createCat(dataFromForm)
+        // })
+    popupAddCat.close() //закрываем попАп
+
+
+    formCatAdd.removeEventListener('submit', handelFormRegCat)
+    formCatAdd.addEventListener('submit', handelFormAddCat)
+    let test = document.querySelector(`.cardId${dataFromForm.id} .card__name`)
+    // console.log(test.innerHTML)
+    test.innerHTML = dataFromForm.name
 }
 
-// let test = document.querySelector(`.cardId${dataFromForm.id} .card__name`)
 
-// test.innerHTML = dataFromForm.name
-// cl(test.innerHTML)
 // cl(test2.document.querySelector('.card__name'))
 
 // this.cardTitle.textContent = 
 
 
-formCatAdd.removeEventListener('submit', handelFormRegCat)
-formCatAdd.addEventListener('submit', handelFormAddCat)
 
 
 

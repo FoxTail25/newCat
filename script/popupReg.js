@@ -8,7 +8,7 @@ let idCatInPopup = document.querySelector('#inputIdCat')
 
 function CreatePopupReg() {
     let textIdFromClassName = this.className
-    // console.log(textIdFromClassName)
+  
     let numId = parseInt(textIdFromClassName.match(/\d+/))
     console.log(numId)
     popupHead.innerText = 'редактирование данных'
@@ -16,16 +16,9 @@ function CreatePopupReg() {
     
     
     popupAddCat.open()
-    // const id = this.querySelector('.card__id')
-    // .document.querySelector('.card__id')
-    // console.log(id)
-    // let test = true;
-    // idCatInPopup.removeAttribute('required')
-    // idCatInPopup.removeAttribute('placeholder')
+
     idCatInPopup.setAttribute('value',numId)
-    // cl(idCatInPopup)
-    // idCatInPopup.innerText = id
-    // console.log(idCatInPopup.style.value)// = '33333'
+ 
     
     formCatAdd.removeEventListener('submit', handelFormAddCat)
     formCatAdd.addEventListener('submit', handelFormRegCat)
