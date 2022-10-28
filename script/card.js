@@ -15,7 +15,7 @@ class Card {
         const cardLike = this.element.querySelector('.card__like');
         const cardId = this._data.id
         if (!this._data.favourite){
-            cardLike.remove()
+            cardLike.style.color = 'white'
         }
 
         cardTitle.textContent = this._data.name;
