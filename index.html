@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <script src="https://kit.fontawesome.com/818800fb65.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="./css/index.css">
     <title>Cats</title>
 </head>
+
 <body class="page">
 
     <header class="header">
@@ -18,8 +22,9 @@
             <a href="#" class="logo">
                 <i id='logo' class="fa-solid fa-cat"></i>Милые котики
             </a>
-
             <button class="btn" id="add"><i class="fa-solid fa-plus"></i>Добавить</button>
+            <button class="btn" id="btnAuth"><i class="fa-solid fa-plus"></i>Авторизация</button>
+
 
         </div>
 
@@ -28,14 +33,14 @@
 
     <main class="main container">
 
-        
-        <section class="cards">
-            
-            <h2 class="visually-hidden">Список котиков</h2>
-            
-          
 
-            
+        <section class="cards">
+
+            <h2 class="visually-hidden">Список котиков</h2>
+
+
+
+
         </section>
 
     </main>
@@ -53,19 +58,19 @@
                 <a class="socials__link" href="#"><i class="fa-brands fa-vk socials__icon"></i></a>
                 <a class="socials__link" href="#"><i class="fa-brands fa-telegram socials__icon"></i></a>
 
-            </nav>
+                </nav>
 
-        </div>
-        
+            </div>
+
     </footer>
 
     <div class="popup popup-add-cats">
-        <div class="popup__container" >
+        <div class="popup__container">
             <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
             <h2 id="popupH2">Добавить котэ</h2>
             <form class="form" id="popup-form-cat">
                 <div class="form__image"></div>
-                    
+
                 <input id='inputIdCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
                 <input type="number" class="form__input" name="age" placeholder="Возраст">
                 <input id='inputNameCat' type="text" class="form__input" name="name" required placeholder="Имя">
@@ -73,7 +78,7 @@
                 <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
                 <label class="form__checkbox-wrap">
                     <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
-                    <span class="form__label">Любимчик</span>  
+                    <span class="form__label">Любимчик</span>
                     <span class="form__fake-checkbox"><i class="fa-regular fa-circle-check"></i></span>
                 </label>
                 <input type="url" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
@@ -81,31 +86,34 @@
             </form>
         </div>
     </div>
-    
+
     <div class="popup popup-login">
-        <div class="popup__container" >
+        <div class="popup__container">
             <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
             <h2 id="popupH2">Авторизация</h2>
-            <form class="form" id="popup-form-cat">
-                    
-                <input id='inputIdCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
-                <input type="number" class="form__input" name="age" placeholder="Возраст">
-            <input type="url" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
+            <form class="form" id="popup-form-login">
+
+                <input id='inputIdCat' type="number" class="form__input" name="email" min="1" required
+                    placeholder="email">
+                <input type="email" class="form__input" name="password" placeholder="пароль">
+                <input type="password" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
                 <button type="submit" class="form__btn btn">Войти</button>
             </form>
         </div>
     </div>
-              
+
 
     <template id="card-template">
 
         <div class="card">
-                
+
             <img src="img/cat.jpg" alt="Изабражение" class="card__image">
             <div class="card__id"></div>
-            <a href="#" class="card__link"><h3 class="card__name">Васька</h3></a>
+            <a href="#" class="card__link">
+                <h3 class="card__name">Васька</h3>
+            </a>
             <button class="card__like" aria-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
-       
+
         </div>
 
     </template>
@@ -116,6 +124,7 @@
     <script src="./script/popup.js" defer></script>
     <script src="./script/index.js" defer></script>
     <script src="./script/popupReg.js" defer></script>
-    
+
 </body>
+
 </html>

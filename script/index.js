@@ -109,6 +109,9 @@ function createCat(catData) {
 const popupAddCat = new Popup('popup-add-cats')
 popupAddCat.setEventListener();
 
+const auth = new Popup('popup-login')
+auth.setEventListener();
+
 btnAddCat.addEventListener('click', () => popupAddCat.open())
 formCatAdd.addEventListener('submit', handelFormAddCat)
 

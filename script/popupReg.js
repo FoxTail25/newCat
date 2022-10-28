@@ -8,9 +8,12 @@ let idCatInPopup = document.querySelector('#inputIdCat')
 let nameCatInPopup = document.querySelector('#inputNameCat')
 
 function CreatePopupReg() {
+    
+    // let cardClassName = textIdFromClassName.slice(5)
     let textIdFromClassName = this.className
-  
     let numId = parseInt(textIdFromClassName.match(/\d+/))
+
+  
     // console.log(numId)
     popupHead.innerText = 'редактирование данных'
     popupBtn.innerText = 'coхранить данные'
