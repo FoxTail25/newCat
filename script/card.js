@@ -13,11 +13,7 @@ class Card {
         const cardTitle = this.element.querySelector('.card__name'); //получаем имя объекта
         const cardImage = this.element.querySelector('.card__image');
         const cardLike = this.element.querySelector('.card__like');
-        const cardIdout = this.element.querySelector('.card__id')
-        const cardClass = this.element.className
         const cardId = this._data.id
-        // cl(cardId)
-        // cardClass + " "+cardClass)
         if (!this._data.favourite){
             cardLike.remove()
         }
@@ -25,10 +21,7 @@ class Card {
         cardTitle.textContent = this._data.name;
         cardImage.src = this._data.img_link;
         cardImage.alt = `img card id ${this._data.id}`;
-        cardIdout.innerText = this._data.id
-        this.element.className = cardClass + " " + `cardId${cardId}`
-        // this.className
-
+        this.element.className = this.element.className + " " + `cardId${cardId}`
 
         return this.element;
     }
