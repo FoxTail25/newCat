@@ -62,10 +62,11 @@
     <div class="popup popup-add-cats">
         <div class="popup__container" >
             <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
-            <h2>Добавить котэ</h2>
+            <h2 id="popupH2">Добавить котэ</h2>
             <form class="form" id="popup-form-cat">
                 <div class="form__image"></div>
-                <input type="number" class="form__input" name="id" min="1" required placeholder="id">
+                    
+                <input id='inputIdCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
                 <input type="number" class="form__input" name="age" placeholder="Возраст">
                 <input type="text" class="form__input" name="name" required placeholder="Имя">
                 <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
@@ -87,6 +88,7 @@
         <div class="card">
                 
             <img src="img/cat.jpg" alt="Изабражение" class="card__image">
+            <div class="card__id"></div>
             <a href="#" class="card__link"><h3 class="card__name">Васька</h3></a>
             <button class="card__like" aria-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
        
@@ -100,6 +102,7 @@
     <script src="./script/card.js" defer></script>
     <script src="./script/popup.js" defer></script>
     <script src="./script/index.js" defer></script>
+    <script src="./script/popupReg.js" defer></script>
     
 </body>
 </html>

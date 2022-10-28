@@ -36,6 +36,14 @@ class Api {
             headers: this._headers
         }).then(this._onResponse)
     }
+
+    updateCat(data,id){
+        return fetch(`${this._url}update/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: this._headers
+        }).then(this._onResponse)
+    }
 }
 
 const api = new Api(CONFIG_API);
