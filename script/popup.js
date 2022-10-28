@@ -17,6 +17,10 @@ class Popup {
     open() {
         this.popup.classList.add('popup_active');
         document.addEventListener('keyup', this._handleEscUp)
+        
+        // let el = document.querySelector('.`${this._className}`')
+        // let el2 = el.document.querySelector('div')
+        // console.log(typeof el)
     }
 
     close() {
@@ -25,7 +29,8 @@ class Popup {
         this.popup.classList.remove('popup_active');
         document.removeEventListener('keyup', this._handleEscUp)
         closeRegPopup()
-        // cl(catId)
+        // console.log(e)
+        // target.reset();
 
     }
     
@@ -44,9 +49,32 @@ class Popup {
 }
 
 function closeRegPopup() {
-    // popupHead.innerText = 'Добавить котика'
-    // popupBtn.innerText = 'Сохранить'
+    popupHead.innerText = 'Добавить котика'
+    popupBtn.innerText = 'Сохранить'
+
+let z = document.querySelectorAll('.form input')
+// console.log(z)
+for(e of z) {
+   e.value = '' 
+}
+// let f = z.document.querySelector('')
+// console.log(typeof z.children)
+
+
+// for(i in f) {
+//     console.log(i.classList)
+//     console.log(f[i].innerText)
+// }
+
+    // const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
+    // const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
+    // console.log(elementsFormCat)
+    // for( i in dataFromForm) {
+    //     console.log(dataFromForm[i])
+    //     dataFromForm[i] = ''
+    // }
+    
     // idCatInPopup.setAttribute('required','')
     // catId.setAttribute('required','')
-    console.log('test')
+    // console.log('test')
 }
