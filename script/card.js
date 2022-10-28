@@ -41,6 +41,6 @@ class Card {
 
 
 
-function cl(a){
-    console.log(a)
-}
+// function cl(a){
+//     console.log(a)
+// }

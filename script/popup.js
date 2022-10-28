@@ -21,11 +21,12 @@ class Popup {
 
     close() {
         let catId = document.querySelector('#inputIdCat')
-        // catId.setAttribute('required')
+        // console.log(catId)
+        catId.setAttribute('required','')
         this.popup.classList.remove('popup_active');
         document.removeEventListener('keyup', this._handleEscUp)
         closeRegPopup()
-        cl(catId)
+        // cl(catId)
 
     }
 

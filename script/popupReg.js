@@ -4,24 +4,27 @@
 // console.log(popupH2)
 const popupHead = document.querySelector('#popupH2')
 const popupBtn = document.querySelector('.form__btn')
+let idCatInPopup = document.querySelector('#inputIdCat')
 
 function CreatePopupReg() {
-    console.log(this)
+    let textIdFromClassName = this.className
+    // console.log(textIdFromClassName)
+    let numId = parseInt(textIdFromClassName.match(/\d+/))
+    console.log(numId)
     popupHead.innerText = 'редактирование данных'
     popupBtn.innerText = 'coхранить данные'
-
+    
     
     popupAddCat.open()
-    const id = this.querySelector('.card__id').innerText
+    // const id = this.querySelector('.card__id')
     // .document.querySelector('.card__id')
-    console.log(id)
+    // console.log(id)
     // let test = true;
-    let idCatInPopup = document.querySelector('#inputIdCat')
-    idCatInPopup.removeAttribute('required')
+    // idCatInPopup.removeAttribute('required')
     // idCatInPopup.removeAttribute('placeholder')
-    idCatInPopup.setAttribute('value',id)
+    idCatInPopup.setAttribute('value',numId)
     // cl(idCatInPopup)
-    idCatInPopup.innerText = id
+    // idCatInPopup.innerText = id
     // console.log(idCatInPopup.style.value)// = '33333'
     
     formCatAdd.removeEventListener('submit', handelFormAddCat)
@@ -30,6 +33,7 @@ function CreatePopupReg() {
 }
 
 function closeRegPopup() {
+    idCatInPopup.removeAttribute('value')
     popupHead.innerText = 'Добавить котика'
     popupBtn.innerText = 'Сохранить'
     // idCatInPopup.setAttribute('required')
