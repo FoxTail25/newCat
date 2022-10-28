@@ -22,17 +22,16 @@ class Popup {
     close() {
         let catId = document.querySelector('#inputIdCat')
         // console.log(catId)
-        catId.setAttribute('required','')
         this.popup.classList.remove('popup_active');
         document.removeEventListener('keyup', this._handleEscUp)
         closeRegPopup()
         // cl(catId)
 
     }
-
+    
     // closeReg() {
-    //     this.popup.classList.remove('popup_active');
-    //     document.removeEventListener('keyup', this._handleEscUp)
+        //     this.popup.classList.remove('popup_active');
+        //     document.removeEventListener('keyup', this._handleEscUp)
     // }
 
     setEventListener(){
@@ -45,7 +44,9 @@ class Popup {
 }
 
 function closeRegPopup() {
-    popupHead.innerText = 'Добавить котика'
-    popupBtn.innerText = 'Сохранить'
-    idCatInPopup.setAttribute('required')
+    // popupHead.innerText = 'Добавить котика'
+    // popupBtn.innerText = 'Сохранить'
+    // idCatInPopup.setAttribute('required','')
+    // catId.setAttribute('required','')
+    console.log('test')
 }

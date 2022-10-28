@@ -25,12 +25,7 @@ function CreatePopupReg() {
     // console.log(popupHead)
 }
 
-function closeRegPopup() {
-    idCatInPopup.removeAttribute('value')
-    popupHead.innerText = 'Добавить котика'
-    popupBtn.innerText = 'Сохранить'
-    // idCatInPopup.setAttribute('required')
-}
+
 
 
 // CreatePopupReg()

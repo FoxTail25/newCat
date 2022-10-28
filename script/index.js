@@ -54,9 +54,7 @@ function handelFormRegCat(e) {
     // console.log(dataFromForm.id)
 
     api.updateCat(dataFromForm, dataFromForm.id)
-        // .then(() => {
-        //     createCat(dataFromForm)
-        // })
+    e.target.reset();
     popupAddCat.close() //закрываем попАп
 
 
