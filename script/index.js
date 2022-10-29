@@ -165,18 +165,22 @@ logoLink.addEventListener('mouseleave', () => changeLiave())
 
 // Cookies.set('password', '1234567')
 
-const isAuth = Cookies.get('email');
+// export const isAuth = Cookies.get('email');
 
-console.log(isAuth)
-
-if(!isAuth) {
-    auth.open()
-    formCatAdd.classList.add('visually-hidden')
-} 
+// console.log(isAuth)
+// // function authTrue(){
+//     if(!isAuth ) {
+    
+// //     popupAddCat.close()
+// //     // auth.open()
+    
+//     formCatAdd.classList.add('visually-hidden')
+// } 
+// }
 
 // else {
 //     // formCatAdd.classList.remove('visually-hidden')
 // }
 
 
-console.log(document.cookie)
+// console.log(document.cookie)
