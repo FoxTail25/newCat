@@ -18,23 +18,18 @@ class Popup {
 
     open() {
         const isAuth = Cookies.get('email');
-        // let a = isAuth
-        // console.log(a === '')
+    
         console.log(isAuth)
         if(this._className != 'popup-login' && !isAuth) {
             alert('Для добавления и изменения данных необходима авторизация')
             popupAddCat.close()
             auth.open()
-        //     // console.log("true")
-        //     // authTrue()
+   
 
         } else {
         this.popup.classList.add('popup_active');
         document.addEventListener('keyup', this._handleEscUp)
-        // }
-        // let el = document.querySelector('.`${this._className}`')
-        // let el2 = el.document.querySelector('div')
-        // console.log(typeof el)
+      
     }
 }
 
