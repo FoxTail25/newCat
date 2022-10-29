@@ -20,9 +20,10 @@ class Card {
 
         cardTitle.textContent = this._data.name;
         cardImage.src = this._data.img_link;
-        cardImage.alt = `img card id ${this._data.id}`;
+        // cardImage.alt = `img card id ${this._data.id}`;
         this.element.className = this.element.className + " " + `cardId${cardId}`
         this.element.addEventListener('click', CreatePopupReg)
+        cardLike.addEventListener('click', like)
         return this.element;
     }
 }
@@ -34,7 +35,10 @@ class Card {
 // console.dir(template) //console.dir () Отображает интерактивный список свойств указанного объекта JavaScript.
 
 
-
+function like() {
+    console.log(this)
+    //.querySelector())
+}
 
 
 
