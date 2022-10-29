@@ -31,7 +31,7 @@ function handelFormLogin(e) {
     const elementsFormCat = [...formLogin.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
     console.log(dataFromForm)
-    // Cookies.set('email', `email=${dataFromForm.email}`)
+    Cookies.set('email', `email=${dataFromForm.email}`)
     // document.cookie = `email=${dataFromForm.email};max-age=60`
     auth.close()
 
@@ -79,10 +79,17 @@ function handelFormRegCat(e) {
     test.innerHTML = dataFromForm.name
 }
 
+function refreshDate(min) {
+    const setTime = new Date(new Date().getTime() + min * 6000)
+    localStorage.setItem('dataRefresh', setTime)
+}
+
 function checkLocalStorage() {
     const localData = JSON.parse(localStorage.getItem('cats'));
-console.log(localData)
-    if (localData && localData.length) {
+// console.log(localData)
+const getTimeAgo = localStorage.getItem('dataRefresh')
+
+    if (localData && localData.length && (new Date() < new Date(getTimeAgo))) {
         localData.forEach(function (el) {
             createCat(el)
         })
@@ -94,7 +101,9 @@ console.log(localData)
                     
                 })
                 localStorage.setItem('cats', JSON.stringify(data))
+                refreshDate(3)
             })
+            
     }
 }
 
@@ -154,6 +163,16 @@ btnLogin.addEventListener('click', () => auth.open())
 logoLink.addEventListener('mouseover', () => changeOver())
 logoLink.addEventListener('mouseleave', () => changeLiave())
 
-Cookies.set('password', '1234567')
+// Cookies.set('password', '1234567')
+
+const isAuth = Cookies.get('email');
+
+console.log(isAuth)
+
+if(!isAuth) {
+    auth.open()
+    formCatAdd.classList.add('visually-hidden')
+}
+
 
 console.log(document.cookie)

@@ -10,7 +10,7 @@ let nameCatInPopup = document.querySelector('#inputNameCat')
 function CreatePopupReg() {
     let catName = this.querySelector('.card__name').innerText
     //setAttribute('value',catName)
-    console.log(catName)
+    // console.log(catName)
     //.document.querySelector('.card__name'))
     // let cardClassName = textIdFromClassName.slice(5)
     let textIdFromClassName = this.className
