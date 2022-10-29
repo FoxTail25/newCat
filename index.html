@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="http://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" defer></script>
     <!-- <script src="https://kit.fontawesome.com/818800fb65.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="./css/index.css">
     <title>Cats</title>
@@ -22,8 +23,8 @@
             <a href="#" class="logo">
                 <i id='logo' class="fa-solid fa-cat"></i>Милые котики
             </a>
-            <button class="btn" id="add"><i class="fa-solid fa-plus"></i>Добавить</button>
-            <button class="btn" id="btnAuth"><i class="fa-solid fa-plus"></i>Авторизация</button>
+            <button class="btn" id="add"><i class="fa-solid fa-plus"></i>Котик</button>
+            <button class="btn" id="btnAuth">Авторизация</button>
 
 
         </div>
@@ -93,10 +94,9 @@
             <h2 id="popupH2">Авторизация</h2>
             <form class="form" id="popup-form-login">
 
-                <input id='inputIdCat' type="number" class="form__input" name="email" min="1" required
-                    placeholder="email">
-                <input type="email" class="form__input" name="password" placeholder="пароль">
-                <input type="password" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
+                <input type="email" class="form__input" name="email" required placeholder="email">
+                <input type="password" class="form__input" name="password" placeholder="пароль">
+                <!-- <input type="password" class="form__input form__input_image" name="img_link" placeholder="Ваше фото 3х4"> -->
                 <button type="submit" class="form__btn btn">Войти</button>
             </form>
         </div>
@@ -120,10 +120,10 @@
 
     <script src="./script/api.js" defer></script>
     <script src="./script/animLogo.js" defer></script>
+    <script src="./script/popupReg.js" defer></script>
     <script src="./script/card.js" defer></script>
     <script src="./script/popup.js" defer></script>
     <script src="./script/index.js" defer></script>
-    <script src="./script/popupReg.js" defer></script>
 
 </body>
 

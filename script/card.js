@@ -22,7 +22,7 @@ class Card {
         cardImage.src = this._data.img_link;
         cardImage.alt = `img card id ${this._data.id}`;
         this.element.className = this.element.className + " " + `cardId${cardId}`
-
+        this.element.addEventListener('click', CreatePopupReg)
         return this.element;
     }
 }
