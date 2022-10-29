@@ -172,7 +172,11 @@ console.log(isAuth)
 if(!isAuth) {
     auth.open()
     formCatAdd.classList.add('visually-hidden')
-}
+} 
+
+// else {
+//     // formCatAdd.classList.remove('visually-hidden')
+// }
 
 
 console.log(document.cookie)
