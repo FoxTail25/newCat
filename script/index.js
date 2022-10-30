@@ -2,7 +2,6 @@
 const cardContainer = document.querySelector('.cards'); // Контейнер, куда добавляем котиков из массива
 const btnAddCat = document.querySelector('#add') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 const btnLogin = document.querySelector('#btnAuth') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
-// const btnClosePopup = document.querySelector('#popupClose') 
 const formCatAdd = document.querySelector('#popup-form-cat') //доступ к форме с данными
 const formLogin = document.querySelector('#popup-form-login') //доступ к форме авторизации
 
@@ -139,6 +138,7 @@ function createCat(catData) {
 
 
 // ПопАп /////////////////////////////////////////////////////////
+
 const popupAddCat = new Popup('popup-add-cats')
 popupAddCat.setEventListener();
 
