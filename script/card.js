@@ -1,4 +1,6 @@
-class Card {
+import { popupInfoCat, popupRegCat } from "./index.js";
+
+export class Card {
     constructor(dataCat, selectorTemplate ) {
         this._data = dataCat;
         this._selectorTemplate = selectorTemplate;
@@ -22,8 +24,9 @@ class Card {
         cardImage.src = this._data.img_link;
         // cardImage.alt = `img card id ${this._data.id}`;
         this.element.className = this.element.className + " " + `cardId${cardId}`
-        this.element.addEventListener('click', CreatePopupReg)
-        cardLike.addEventListener('click', like)
+        cardImage.addEventListener('click', ()=> popupInfoCat.open(this._data, 'info'))
+        cardTitle.addEventListener('click', ()=> popupRegCat.open(this._data, 'reg'))
+        // cardLike.addEventListener('click', ()
         return this.element;
     }
 }

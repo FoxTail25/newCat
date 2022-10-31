@@ -1,0 +1,81 @@
+.popup__container-info-cat {
+
+    max-width: 600px;
+    /* max-height: 600px; */
+    background-color: var(--form-color);
+    padding: 20px;
+    position: relative;
+}
+
+.form-info {
+    position: relative;
+    /* height: 70vh; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 12fr .8fr 2fr;
+    gap: 20px;
+    /* grid-template-areas: 'i i i'
+                        /* 'i i i'
+                        'i i i'
+                        'i i i'
+                        'i i i' */
+                     /* 'name age rate'
+                        'ta ta l';                 */ 
+}
+                    
+                    
+.form-info-img {
+    /* grid-area: i; */
+    grid-column: span 4;
+    /* grid-row: span 1; */
+    max-width: 100%;
+    max-height: 100%;
+    background-position: center;
+    /* background-size:100%; */
+    background-size: contain;
+    background-repeat: no-repeat;
+} 
+
+.form__input-info {
+    /* height: 50%; */
+    border: none;
+    background-color: var(--form-color);
+}
+
+.form__textarea-info{
+    grid-column: span 2;
+    resize: none;
+    
+}
+
+@media (max-width: 600px) {
+    .popup__container-info-cat {
+        max-width: 80vw;
+    }
+    .form-info {
+        width: 80vw;
+    }
+    .form-info-img {
+        width: 70vw;
+    }
+    .form__input-info {
+       width: 22vw;
+       font-size: 2vw;
+    }
+}
+                    
+/* 
+.popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.popup__close_external {
+    background-color: transparent;
+    color: var(--head-bg-color);
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+}
+*/

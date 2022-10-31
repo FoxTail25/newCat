@@ -46,4 +46,4 @@ class Api {
     }
 }
 
-const api = new Api(CONFIG_API);
+export const api = new Api(CONFIG_API);

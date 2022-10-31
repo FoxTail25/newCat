@@ -1,9 +1,15 @@
 
 const cardContainer = document.querySelector('.cards'); // Контейнер, куда добавляем котиков из массива
 const btnAddCat = document.querySelector('#add') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
+// const btnRegCat = document.querySelector('#reg') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 const btnLogin = document.querySelector('#btnAuth') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
-const formCatAdd = document.querySelector('#popup-form-cat') //доступ к форме с данными
+const formAddCat = document.querySelector('#popup-form-add-cat') //доступ к форме с данными
 const formLogin = document.querySelector('#popup-form-login') //доступ к форме авторизации
+
+
+import { formRegCat, Popup } from "./popup.js"
+import { api } from "./api.js"
+import { Card } from "./card.js"
 
 function checkForm(elements) { //функция проверки сборки данных из формы
     const formData = {};
@@ -39,7 +45,7 @@ function handelFormLogin(e) {
 function handelFormAddCat(e) {
     e.preventDefault()
 
-    const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
+    const elementsFormCat = [...formAddCat.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
     console.log(dataFromForm)
 
@@ -53,10 +59,10 @@ function handelFormAddCat(e) {
 
 function handelFormRegCat(e) {
     e.preventDefault() // отменить действие по умолчанию
-    const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
+    const elementsFormCat = [...formRegCat.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
 
-    for (el in dataFromForm) {
+    for (let el in dataFromForm) {
         if (dataFromForm[el] === "") {
             delete dataFromForm[el]  // убираем пустые поля из объекта
         }
@@ -65,17 +71,29 @@ function handelFormRegCat(e) {
     // console.log(dataFromForm)
 
     // console.log(dataFromForm.id)
+    let a = JSON.parse(localStorage.cats)
+    let b;
+    // console.log(typeof a)
+    // console.log(a)
+    a.forEach((i)=>{
+        if(i.id == dataFromForm.id){
+        b = i
+        console.log(b)
+    }
+    });
 
-    api.updateCat(dataFromForm, dataFromForm.id)
+
+
+    api.updateCat(dataFromForm, dataFromForm.id);
     e.target.reset();
-    popupAddCat.close() //закрываем попАп
+    popupRegCat.close() //закрываем попАп
 
 
-    formCatAdd.removeEventListener('submit', handelFormRegCat)
-    formCatAdd.addEventListener('submit', handelFormAddCat)
-    let test = document.querySelector(`.cardId${dataFromForm.id} .card__name`)
+    // formAddCat.removeEventListener('submit', handelFormRegCat)
+    // formAddCat.addEventListener('submit', handelFormAddCat)
+    // let test = document.querySelector(`.cardId${dataFromForm.id} .card__name`)
     // console.log(test.innerHTML)
-    test.innerHTML = dataFromForm.name
+    // test.innerHTML = dataFromForm.name
 }
 
 function refreshDate(min) {
@@ -100,7 +118,7 @@ const getTimeAgo = localStorage.getItem('dataRefresh')
                     
                 })
                 localStorage.setItem('cats', JSON.stringify(data))
-                refreshDate(3)
+                refreshDate(1)
             })
             
     }
@@ -108,52 +126,66 @@ const getTimeAgo = localStorage.getItem('dataRefresh')
 
 checkLocalStorage()
 
+
+
+function createCat(catData) {
+    
+    
+    const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
+    const newCardElement = cardInstans.getElement();
+    // newCardElement.addEventListener('click', () => popupInfoCat.open(catData, 'info'))
+    // newCardElement.querySelector('.card__link').addEventListener('click', () => popupRegCat.open(catData, 'reg'))
+    // console.log(this)
+    // console.log(as)
+    cardContainer.append(newCardElement)// добавить карточку на страницу
+}
 // api.getAllCats() // Получаем список котиков с сервера
 //     .then(({ data }) => { // получаем массив с объектами
 //         // console.log(data)
 //         data.forEach(function (el) {
-//             createCat(el)  // создаём карточку котика из каждого элемета массива
-//         })
-//     })
-
-function createCat(catData) {
-
-
-    const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
-    const newCardElement = cardInstans.getElement();
-    // newCardElement.addEventListener('click', CreatePopupReg)
-    cardContainer.append(newCardElement)// добавить карточку на страницу
-}
-// function updateCat(catData, id) {
-
-
-//     // const cardInstans = //получить данные карты из формы
-// //     // new Card(catData, '#card-template')// создать карточку из данных
-//     // const newCardElement = cardInstans.getElement();
-//     // newCardElement.addEventListener('click', CreatePopupReg)
-//     // cardContainer.append(newCardElement)// добавить карточку на страницу
-// }
-
-// console.log(a)
-
-
-// ПопАп /////////////////////////////////////////////////////////
-
-const popupAddCat = new Popup('popup-add-cats')
-popupAddCat.setEventListener();
-
-const auth = new Popup('popup-login')
-auth.setEventListener();
-
-btnAddCat.addEventListener('click', () => popupAddCat.open())
-formCatAdd.addEventListener('submit', handelFormAddCat)
-formLogin.addEventListener('submit', handelFormLogin)
-
-btnLogin.addEventListener('click', () => auth.open())
-
-
-
-
+    //             createCat(el)  // создаём карточку котика из каждого элемета массива
+    //         })
+    //     })
+    
+    // function updateCat(catData, id) {
+        
+        
+        //     // const cardInstans = //получить данные карты из формы
+        // //     // new Card(catData, '#card-template')// создать карточку из данных
+        //     // const newCardElement = cardInstans.getElement();
+        //     // newCardElement.addEventListener('click', CreatePopupReg)
+        //     // cardContainer.append(newCardElement)// добавить карточку на страницу
+        // }
+        
+        // console.log(a)
+        
+        
+        // ПопАп /////////////////////////////////////////////////////////
+        
+        const popupAddCat = new Popup('popup-add-cats')
+        popupAddCat.setEventListener();
+        
+        const auth = new Popup('popup-login')
+        auth.setEventListener();
+        
+        export const popupRegCat = new Popup('popup-reg-cats')
+        popupRegCat.setEventListener();
+        
+        export const popupInfoCat = new Popup('popup-info-cats')
+        popupInfoCat.setEventListener();
+        
+        btnAddCat.addEventListener('click', () => popupAddCat.open())
+        formAddCat.addEventListener('submit', handelFormAddCat)
+        formLogin.addEventListener('submit', handelFormLogin)
+        formRegCat.addEventListener('submit', handelFormRegCat)
+        
+        
+        
+        btnLogin.addEventListener('click', () => auth.open())
+        
+        
+        
+        
 // popupAddCat.close()
 // popupAddCat.open()
 // console.log(popupAddCat)
@@ -174,12 +206,12 @@ logoLink.addEventListener('mouseleave', () => changeLiave())
 // //     popupAddCat.close()
 // //     // auth.open()
     
-//     formCatAdd.classList.add('visually-hidden')
+//     formAddCat.classList.add('visually-hidden')
 // } 
 // }
 
 // else {
-//     // formCatAdd.classList.remove('visually-hidden')
+//     // formAddCat.classList.remove('visually-hidden')
 // }
 
 
