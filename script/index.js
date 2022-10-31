@@ -58,72 +58,53 @@ function handelFormAddCat(e) {
     popupAddCat.close() //закрываем попАп
 }
 
+
 function handelFormRegCat(e) {
     e.preventDefault() // отменить действие по умолчанию
     const elementsFormCat = [...formRegCat.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
+    
+    let catsInlocalStorage = JSON.parse(localStorage.cats) // Получаем объкт с котиками из Локального хранилища.
+    let catIdFromLocalStoradge;
 
     for (let el in dataFromForm) {
+
         if (dataFromForm[el] === "") {
+
             delete dataFromForm[el]  // убираем пустые поля из объекта
         }
+        catsInlocalStorage.forEach((i)=>{
+            if(i.id == dataFromForm.id){
+                catIdFromLocalStoradge = i
+            }
+        });
     }
-
-    // console.log(dataFromForm)
-    // console.log(dataFromForm.id)
-
-    let a = JSON.parse(localStorage.cats) // Получаем объкт с котиками из Локального хранилища.
-    let b;
-    // console.log(typeof a)
-    // console.log(a)
-    a.forEach((i)=>{
-        if(i.id == dataFromForm.id){
-            b = i
-        }
-    });
-    
     for (let i in dataFromForm) {
         
         // console.log(b[i], dataFromForm[i])
-        if(dataFromForm[i] != b[i]) {
-            b[i] = dataFromForm[i]
-            console.log(b[i])
-            a[b] = b
-            let c = JSON.stringify(a)
-            // console.log(a[b])
-            delete localStorage.cats;
-            localStorage.setItem('cats', c)
-            console.log(localStorage.cats)
-            
-            
+        if(dataFromForm[i] != catIdFromLocalStoradge[i]) {
+            catIdFromLocalStoradge[i] = dataFromForm[i]
+        
+            catsInlocalStorage[catIdFromLocalStoradge] = catIdFromLocalStoradge
+            let c = JSON.stringify(catsInlocalStorage)
+            console.log(catsInlocalStorage)
+            localStorage.setItem('cats', JSON.stringify(catsInlocalStorage))
+
+            let a = document.querySelector('.cards')
+            a.innerHTML = ''
+        
             const newLocalData = JSON.parse(localStorage.getItem('cats'));
+            newLocalData.forEach(function (el) {
+                createCat(el)
+            })
+                
+        }
             
-            
-            // newLocalData.forEach(function (el) {
-            //     createCat(el)
-            //     // console.log('')
-            // })
-
-         }
-
+        api.updateCat(dataFromForm, dataFromForm.id);
+        e.target.reset();
+        popupRegCat.close() //закрываем попАп
     
-    
-
-
-    // if(dataFromForm.b[i]) {console.log('true')}
-    // console.log(b[i])
-    // console.log(a.b[i])
     }
-
-
-
-
-
-
-    api.updateCat(dataFromForm, dataFromForm.id);
-    e.target.reset();
-    popupRegCat.close() //закрываем попАп
-
 
     // formAddCat.removeEventListener('submit', handelFormRegCat)
     // formAddCat.addEventListener('submit', handelFormAddCat)
@@ -165,7 +146,7 @@ function checkLocalStorage() {
                     
                 })
                 localStorage.setItem('cats', JSON.stringify(data))
-                refreshDate(1)
+                refreshDate(30)
             })
             
     }
@@ -186,6 +167,8 @@ function createCat(catData) {
     // console.log(as)
     cardContainer.append(newCardElement)// добавить карточку на страницу
 }
+
+
 // api.getAllCats() // Получаем список котиков с сервера
 //     .then(({ data }) => { // получаем массив с объектами
 //         // console.log(data)
