@@ -26,3 +26,7 @@
     background-color:var(--btn-text-color);
     color: var(--btn-bg-color);
 }
+
+.btn_delete:hover {
+    background-color: red;
+}

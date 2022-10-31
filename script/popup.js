@@ -1,3 +1,5 @@
+
+
 // import { isAuth } from "./index.js";
 const formInfoCat = document.querySelector('#popup-form-info-cat') //доступ к форме с данными просмотра
 export const formRegCat = document.querySelector('#popup-form-reg-cat') //доступ к форме с данными редактирования
@@ -63,6 +65,7 @@ export class Popup {
             //         //  console.log(cardData.img_link)
         }
         //     // console.log(elementsFormCat);
+        
         
         
         this._cardRegImage.style.backgroundImage = `url(${cardData.img_link})`

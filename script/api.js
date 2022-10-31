@@ -44,6 +44,13 @@ class Api {
             headers: this._headers
         }).then(this._onResponse)
     }
+    deleteCat(data,id){
+        return fetch(`${this._url}delete/${id}`, {
+            method: 'DELETE'
+            // body: JSON.stringify(data),
+            // headers: this._headers
+        }).then(this._onResponse)
+    }
 }
 
 export const api = new Api(CONFIG_API);

@@ -5,6 +5,7 @@ const btnAddCat = document.querySelector('#add') // кнопка на котор
 const btnLogin = document.querySelector('#btnAuth') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 const formAddCat = document.querySelector('#popup-form-add-cat') //доступ к форме с данными
 const formLogin = document.querySelector('#popup-form-login') //доступ к форме авторизации
+const btn_deleteCat = document.querySelector('#btnDeleteCat')
 
 
 import { formRegCat, Popup } from "./popup.js"
@@ -69,18 +70,53 @@ function handelFormRegCat(e) {
     }
 
     // console.log(dataFromForm)
-
     // console.log(dataFromForm.id)
-    let a = JSON.parse(localStorage.cats)
+
+    let a = JSON.parse(localStorage.cats) // Получаем объкт с котиками из Локального хранилища.
     let b;
     // console.log(typeof a)
     // console.log(a)
     a.forEach((i)=>{
         if(i.id == dataFromForm.id){
-        b = i
-        console.log(b)
-    }
+            b = i
+        }
     });
+    
+    for (let i in dataFromForm) {
+        
+        // console.log(b[i], dataFromForm[i])
+        if(dataFromForm[i] != b[i]) {
+            b[i] = dataFromForm[i]
+            console.log(b[i])
+            a[b] = b
+            let c = JSON.stringify(a)
+            // console.log(a[b])
+            delete localStorage.cats;
+            localStorage.setItem('cats', c)
+            console.log(localStorage.cats)
+            
+            
+            const newLocalData = JSON.parse(localStorage.getItem('cats'));
+            
+            
+            // newLocalData.forEach(function (el) {
+            //     createCat(el)
+            //     // console.log('')
+            // })
+
+         }
+
+    
+    
+
+
+    // if(dataFromForm.b[i]) {console.log('true')}
+    // console.log(b[i])
+    // console.log(a.b[i])
+    }
+
+
+
 
 
 
@@ -96,15 +132,26 @@ function handelFormRegCat(e) {
     // test.innerHTML = dataFromForm.name
 }
 
+function handelDeleteCat() {
+    // e.preventDefault
+    // elementsFormCat
+    const elementsFormCat = [...formRegCat.elements];
+    const dataFromForm = checkForm(elementsFormCat) 
+    console.log(dataFromForm.id);
+
+    api.deleteCat(dataFromForm, dataFromForm.id);
+    popupRegCat.close();
+}
+
 function refreshDate(min) {
     const setTime = new Date(new Date().getTime() + min * 6000)
     localStorage.setItem('dataRefresh', setTime)
 }
 
 function checkLocalStorage() {
+    // console.log(localData)
+    const getTimeAgo = localStorage.getItem('dataRefresh')
     const localData = JSON.parse(localStorage.getItem('cats'));
-// console.log(localData)
-const getTimeAgo = localStorage.getItem('dataRefresh')
 
     if (localData && localData.length && (new Date() < new Date(getTimeAgo))) {
         localData.forEach(function (el) {
@@ -178,6 +225,7 @@ function createCat(catData) {
         formAddCat.addEventListener('submit', handelFormAddCat)
         formLogin.addEventListener('submit', handelFormLogin)
         formRegCat.addEventListener('submit', handelFormRegCat)
+        btn_deleteCat.addEventListener('click', handelDeleteCat,)
         
         
         
