@@ -3,10 +3,10 @@
 // // popupReg.append(popup)
 // console.log(popupH2)
 // import { Popup } from "./popup.js"
-const popupHead = document.querySelector('#popupH2')
-const popupBtn = document.querySelector('.form__btn')
-let idCatInPopup = document.querySelector('#inputIdCat')
-let nameCatInPopup = document.querySelector('#inputNameCat')
+// const popupHead = document.querySelector('#popupH2')
+// const popupBtn = document.querySelector('.form__btn')
+// let idCatInPopup = document.querySelector('#inputIdCat')
+// let nameCatInPopup = document.querySelector('#inputNameCat')
 
 // function CreatePopupReg() {
 //     let catName = this.querySelector('.card__name').innerText

@@ -17,10 +17,7 @@
 .btn:hover {
     background-color:blue;
 }
-/* #add:hover:before {
-    content: 'Котика';
-    transition: .3s;
-} */
+
 
 .btn:active {
     background-color:var(--btn-text-color);

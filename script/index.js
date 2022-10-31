@@ -88,12 +88,12 @@ function handelFormRegCat(e) {
             catsInlocalStorage[catIdFromLocalStoradge] = catIdFromLocalStoradge
             let c = JSON.stringify(catsInlocalStorage)
             console.log(catsInlocalStorage)
-            localStorage.setItem('cats', JSON.stringify(catsInlocalStorage))
+            localStorage.setItem('cats', JSON.stringify(catsInlocalStorage)) //сохранить в локалСторадж изменения
 
             let a = document.querySelector('.cards')
-            a.innerHTML = ''
+            a.innerHTML = '' // очистить контейнер с карточками
         
-            const newLocalData = JSON.parse(localStorage.getItem('cats'));
+            const newLocalData = JSON.parse(localStorage.getItem('cats')); // наполнить контейнер заново
             newLocalData.forEach(function (el) {
                 createCat(el)
             })
@@ -106,21 +106,16 @@ function handelFormRegCat(e) {
     
     }
 
-    // formAddCat.removeEventListener('submit', handelFormRegCat)
-    // formAddCat.addEventListener('submit', handelFormAddCat)
-    // let test = document.querySelector(`.cardId${dataFromForm.id} .card__name`)
-    // console.log(test.innerHTML)
-    // test.innerHTML = dataFromForm.name
+
 }
 
 function handelDeleteCat() {
-    // e.preventDefault
-    // elementsFormCat
+
     const elementsFormCat = [...formRegCat.elements];
     const dataFromForm = checkForm(elementsFormCat) 
     console.log(dataFromForm.id);
 
-    api.deleteCat(dataFromForm, dataFromForm.id);
+    api.deleteCat(dataFromForm.id);
     popupRegCat.close();
 }
 
@@ -130,7 +125,7 @@ function refreshDate(min) {
 }
 
 function checkLocalStorage() {
-    // console.log(localData)
+
     const getTimeAgo = localStorage.getItem('dataRefresh')
     const localData = JSON.parse(localStorage.getItem('cats'));
 
@@ -157,94 +152,42 @@ checkLocalStorage()
 
 
 function createCat(catData) {
-    
-    
-    const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
-    const newCardElement = cardInstans.getElement();
-    // newCardElement.addEventListener('click', () => popupInfoCat.open(catData, 'info'))
-    // newCardElement.querySelector('.card__link').addEventListener('click', () => popupRegCat.open(catData, 'reg'))
-    // console.log(this)
-    // console.log(as)
-    cardContainer.append(newCardElement)// добавить карточку на страницу
+
+
+const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
+const newCardElement = cardInstans.getElement();
+
+cardContainer.append(newCardElement)// добавить карточку на страницу
 }
 
 
-// api.getAllCats() // Получаем список котиков с сервера
-//     .then(({ data }) => { // получаем массив с объектами
-//         // console.log(data)
-//         data.forEach(function (el) {
-    //             createCat(el)  // создаём карточку котика из каждого элемета массива
-    //         })
-    //     })
-    
-    // function updateCat(catData, id) {
-        
-        
-        //     // const cardInstans = //получить данные карты из формы
-        // //     // new Card(catData, '#card-template')// создать карточку из данных
-        //     // const newCardElement = cardInstans.getElement();
-        //     // newCardElement.addEventListener('click', CreatePopupReg)
-        //     // cardContainer.append(newCardElement)// добавить карточку на страницу
-        // }
-        
-        // console.log(a)
-        
-        
-        // ПопАп /////////////////////////////////////////////////////////
-        
-        const popupAddCat = new Popup('popup-add-cats')
-        popupAddCat.setEventListener();
-        
-        const auth = new Popup('popup-login')
-        auth.setEventListener();
-        
-        export const popupRegCat = new Popup('popup-reg-cats')
-        popupRegCat.setEventListener();
-        
-        export const popupInfoCat = new Popup('popup-info-cats')
-        popupInfoCat.setEventListener();
-        
-        btnAddCat.addEventListener('click', () => popupAddCat.open())
-        formAddCat.addEventListener('submit', handelFormAddCat)
-        formLogin.addEventListener('submit', handelFormLogin)
-        formRegCat.addEventListener('submit', handelFormRegCat)
-        btn_deleteCat.addEventListener('click', handelDeleteCat,)
-        
-        
-        
-        btnLogin.addEventListener('click', () => auth.open())
-        
-        
-        
-        
-// popupAddCat.close()
-// popupAddCat.open()
-// console.log(popupAddCat)
+// ПопАп /////////////////////////////////////////////////////////
+
+const popupAddCat = new Popup('popup-add-cats')
+popupAddCat.setEventListener();
+
+const auth = new Popup('popup-login')
+auth.setEventListener();
+
+export const popupRegCat = new Popup('popup-reg-cats')
+popupRegCat.setEventListener();
+
+export const popupInfoCat = new Popup('popup-info-cats')
+popupInfoCat.setEventListener();
+
+btnAddCat.addEventListener('click', () => popupAddCat.open())
+formAddCat.addEventListener('submit', handelFormAddCat)
+formLogin.addEventListener('submit', handelFormLogin)
+formRegCat.addEventListener('submit', handelFormRegCat)
+btn_deleteCat.addEventListener('click', handelDeleteCat,)
+
+
+
+btnLogin.addEventListener('click', () => auth.open())
+
 
 ///// замена лого ////
 
 logoLink.addEventListener('mouseover', () => changeOver())
 logoLink.addEventListener('mouseleave', () => changeLiave())
-
-// Cookies.set('password', '1234567')
-
-// export const isAuth = Cookies.get('email');
-
-// console.log(isAuth)
-// // function authTrue(){
-//     if(!isAuth ) {
-    
-// //     popupAddCat.close()
-// //     // auth.open()
-    
-//     formAddCat.classList.add('visually-hidden')
-// } 
-// }
-
-// else {
-//     // formAddCat.classList.remove('visually-hidden')
-// }
-
-
-// console.log(document.cookie)
 

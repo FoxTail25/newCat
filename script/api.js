@@ -4,7 +4,7 @@
 // GET https://sb-cats.herokuapp.com/api/show/:id  - отобразить конкретного котика
 // POST https://sb-cats.herokuapp.com/api/add - добавить котика
 // PUT https://sb-cats.herokuapp.com/api/update/:id - изменить информацию о котике
-// DELETE  https://sb-cats.herokuapp.com/api/:id - удалить
+// DELETE  https://sb-cats.herokuapp.com/api/delelte/:id - удалить
 
 const CONFIG_API = {
     url: 'https://sb-cats.herokuapp.com/api/2/grigoricat/',
@@ -14,6 +14,7 @@ const CONFIG_API = {
 }
 
 class Api {
+
     constructor(config){
         this._url = config.url;
         this._headers = config.headers;
@@ -23,6 +24,7 @@ class Api {
     _onResponse(res){  // Ответ сервера
         return res.ok ? res.json(): Promise.reject({...res, message: "Ошибка на стороне сервера"});
     }
+
     getAllCats(){
         return fetch(`${this._url}show`, {
             method: 'GET'
@@ -44,11 +46,11 @@ class Api {
             headers: this._headers
         }).then(this._onResponse)
     }
-    deleteCat(data,id){
+
+    deleteCat(id){
         return fetch(`${this._url}delete/${id}`, {
             method: 'DELETE'
-            // body: JSON.stringify(data),
-            // headers: this._headers
+
         }).then(this._onResponse)
     }
 }

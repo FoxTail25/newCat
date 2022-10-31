@@ -1,7 +1,6 @@
 .popup__container-info-cat {
 
     max-width: 600px;
-    /* max-height: 600px; */
     background-color: var(--form-color);
     padding: 20px;
     position: relative;
@@ -9,18 +8,11 @@
 
 .form-info {
     position: relative;
-    /* height: 70vh; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 12fr .8fr 2fr;
     gap: 20px;
-    /* grid-template-areas: 'i i i'
-                        /* 'i i i'
-                        'i i i'
-                        'i i i'
-                        'i i i' */
-                     /* 'name age rate'
-                        'ta ta l';                 */ 
+
 }
                     
                     
@@ -63,19 +55,3 @@
        font-size: 2vw;
     }
 }
-                    
-/* 
-.popup__close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.popup__close_external {
-    background-color: transparent;
-    color: var(--head-bg-color);
-    top: -40px;
-    right: -40px;
-    font-size: 30px;
-}
-*/

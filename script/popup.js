@@ -5,9 +5,7 @@ const formInfoCat = document.querySelector('#popup-form-info-cat') //досту�
 export const formRegCat = document.querySelector('#popup-form-reg-cat') //доступ к форме с данными редактирования
 
 
-// import { formInfoCat } from "./index.js";
 
-// const isAuth = Cookies.get('email')
 export class Popup {
     constructor(className) {
         this._className = className;
@@ -59,46 +57,29 @@ export class Popup {
         
         const elementsFormCat = [...formRegCat.elements];
         for( let i of elementsFormCat){
-            // console.log(i)
             i.value = '';
             i.value = `${cardData[i.name]}`
-            //         //  console.log(cardData.img_link)
         }
-        //     // console.log(elementsFormCat);
         
         
         
         this._cardRegImage.style.backgroundImage = `url(${cardData.img_link})`
-            // console.log(this._cardRegImage)
-            // console.log(cardData.img_link)
             this.popup.classList.add('popup_active');
             document.addEventListener('keyup', this._handleEscUp)
         }else {
-            //    console.log(flag)
             
             this.popup.classList.add('popup_active');
             document.addEventListener('keyup', this._handleEscUp)
         }
-        // formFuller(cardData) {
 
-        // }
     }
 
     close() {
-        // let catId = document.querySelector('#inputIdCat')
-        // console.log(catId)
         this.popup.classList.remove('popup_active');
         document.removeEventListener('keyup', this._handleEscUp)
-        // closeRegPopup()
-        // console.log(e)
-        // evt.target.reset();
 
     }
     
-    // closeReg() {
-        //     this.popup.classList.remove('popup_active');
-        //     document.removeEventListener('keyup', this._handleEscUp)
-    // }
 
     setEventListener(){
         this.popup.addEventListener('click', (evt) => {
@@ -108,36 +89,3 @@ export class Popup {
         })
     }
 }
-
-
-
-// function closeRegPopup() {
-//     popupHead.innerText = 'Добавить котика'
-//     popupBtn.innerText = 'Сохранить'
-
-// let z = document.querySelectorAll('.form input')
-// // console.log(z)
-// for(e of z) {
-//    e.value = '' 
-// }
-// let f = z.document.querySelector('')
-// console.log(typeof z.children)
-
-
-// for(i in f) {
-//     console.log(i.classList)
-//     console.log(f[i].innerText)
-// }
-
-    // const elementsFormCat = [...formCatAdd.elements]; //получаем массив элементов формы
-    // const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
-    // console.log(elementsFormCat)
-    // for( i in dataFromForm) {
-    //     console.log(dataFromForm[i])
-    //     dataFromForm[i] = ''
-    // }
-    
-    // idCatInPopup.setAttribute('required','')
-    // catId.setAttribute('required','')
-    // console.log('test')
-// }

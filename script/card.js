@@ -24,8 +24,8 @@ export class Card {
         cardImage.src = this._data.img_link;
         // cardImage.alt = `img card id ${this._data.id}`;
         this.element.className = this.element.className + " " + `cardId${cardId}`
-        cardImage.addEventListener('click', ()=> popupInfoCat.open(this._data, 'info'))
-        cardTitle.addEventListener('click', ()=> popupRegCat.open(this._data, 'reg'))
+        cardImage.addEventListener('click', ()=> popupInfoCat.open(this._data, 'info')) // ставим слушатель на картинку
+        cardTitle.addEventListener('click', ()=> popupRegCat.open(this._data, 'reg')) // ставим слушатель на имя
         // cardLike.addEventListener('click', ()
         return this.element;
     }
