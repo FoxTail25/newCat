@@ -1,9 +1,13 @@
 .footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 50;
     padding-top: 10px;
     padding-bottom: 10px;
     /* padding: 10px; */
     box-shadow: 0 0 2px 0 var(--footer-boxShadow-color);
     background-color: var(--footer-bg-color);
+
 }
 
 .footer__container {
@@ -12,3 +16,17 @@
     align-items: center;
 }
 
+.footer__img {
+    position: fixed;
+    /* display: flex; */
+    /* align-self: flex-end; */
+    background: url(../../img/black1.png) no-repeat bottom;
+    background-size:100%;
+    width: 50vw;
+    height: 50vw;
+    /* padding-left: 50vw; */
+    z-index: 2;
+    bottom: 3.05rem;
+    left: 45vw;
+    
+}

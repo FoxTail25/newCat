@@ -12,7 +12,7 @@
     transition: .3s;
     /* position: relative; */
     /* translate: -100% -100%; */
-    z-index: 30;
+    z-index: 2;
 }
 .btn:hover {
     background-color:blue;
