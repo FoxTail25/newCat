@@ -110,6 +110,8 @@
 
     font-weight: 900;
     font-size: 1.2em;
+    padding: 0 2vw;
+    background: rgba(255, 255, 255, 0.832);
     /* position: absolute;
     bottom:0%;
     z-index: 3; */

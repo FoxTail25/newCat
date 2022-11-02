@@ -190,6 +190,7 @@
     70%{
         left: 20vw;
         transform: scale(-1);
+        top: 50vh;
     }
     90% {
         transform: scale(-1);
@@ -198,6 +199,7 @@
     100% {
         transform: scale(-1);
         left: -20vw;
+        top: 10vh;
     }
 }
 
