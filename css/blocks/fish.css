@@ -1,10 +1,10 @@
 .fish {
     position: absolute;
 
-    z-index: 2;
+    z-index: 1;
     background-size: cover;
-    width: 140px;
-    height: 110px;
+    width: initial;
+    height: initial;
     color: gold;
     font-size: 50px;
     animation: fish 23s ease infinite;

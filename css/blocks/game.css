@@ -1,0 +1,8 @@
+.invisible {
+    display: none;
+}
+
+.count {
+    background: white;
+    z-index: 7;
+}
