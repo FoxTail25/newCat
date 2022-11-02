@@ -10,9 +10,11 @@ body {
 }
 /*  добавление градиента */
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-65deg, #23004b, #064db7, #23a6d5, #23d5ab);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    /* background-image:url(/img/5ff5278c7344d01df287c64240e77170.png); */
+    animation: gradient 6s ease infinite;
+    overflow: hidden;
 }
 
 @keyframes gradient {

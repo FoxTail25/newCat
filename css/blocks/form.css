@@ -29,7 +29,7 @@
     box-sizing: border-box;
     border: 1px solid var(--outline-color);
     border-radius: 4px;
-    padding: 8px 8px;
+    /* padding: 18px 18px; */
 }
 
 .form__input:focus {
@@ -44,8 +44,10 @@
 .form__checkbox-wrap {
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     gap: 10px;
+    background-color: white;
 }
 
 .form__checkbox {

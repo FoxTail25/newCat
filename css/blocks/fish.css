@@ -1,0 +1,179 @@
+.fish {
+    position: absolute;
+
+    z-index: 2;
+    background-size: cover;
+    width: 140px;
+    height: 110px;
+    color: gold;
+    font-size: 50px;
+    /* animation: fish 23s ease infinite; */
+}
+
+.f1 {
+    top: 12vh;
+    left: 10%;
+    color: gold;
+    font-size: 50px;
+    animation: fish 23s ease infinite;
+    /* animation: fish 23s ease infinite; */
+}
+
+
+.f2 {
+    top: 12vh;
+    left: 10%;
+    color: rgb(243, 147, 21);
+    font-size: 50px;
+    animation: fish2 13s ease infinite;
+}
+.f3 {
+    top: 42vh;
+    left: 10%;
+    color: gold;
+    font-size: 50px;
+    animation: fish2 8s ease infinite;
+}
+.f4 {
+    top: 72vh;
+    left: 10%;
+    color: rgb(132, 113, 4);
+    font-size: 50px;
+    animation: fish 6s ease infinite;
+}
+.f5 {
+    top: 72vh;
+    left: 10%;
+    color: rgb(236, 236, 236);
+    font-size: 50px;
+    animation: fish3 6s ease infinite;
+}
+.f6 {
+    top: 12vh;
+    left: 10%;
+    color: rgb(243, 251, 1);
+    font-size: 50px;
+    animation: fish3 25s ease infinite;
+}
+
+
+
+/* .fish2 {
+    position: absolute;
+    top: 46vh;
+    left: 10%;
+    z-index: 2;
+    background-size: cover;
+    width: 140px;
+    height: 110px;
+    color: gold;
+    animation: fish2 9s ease infinite;
+} */
+
+@keyframes fish {
+
+    0% {
+        /* background-position: 0% 50%; */
+        /* transition: 10% 40%; */
+        left: -10%;
+        top: 20%;
+    }
+    10% {
+        /* background-position: 50% 100%; */
+        /* transition: 100% 50%; */
+        left: 46%;
+        top: 60%;
+    }
+    20%{
+        left: 50%;
+
+        /* transform: scale(.5); */
+
+    }
+    50% {
+        overflow: hidden;
+        left:110%;
+        transform: rotate(0deg);
+        /* background-position: 0% 50%; */
+        /* transition: 0% 50%; */
+    }
+    51% {
+        transform: rotate(180deg);
+    }
+    53% {
+        left: 105%;
+    }
+    
+    70% {
+        overflow: hidden;
+        left:70%;
+        /* background-position: 0% 50%; */
+        /* transition: 0% 50%; */
+    }
+    100% {left: -30%;
+        top: 20%;
+        transform: rotate(180deg);
+        
+    }
+}
+@keyframes fish2 {
+
+    0% {
+        /* background-position: 0% 50%; */
+        /* transition: 10% 40%; */
+        left: -2%;
+    }
+    20% {
+        left: 20%;
+    }
+    50% {
+        left: 110%;
+        transform: rotate(0deg);
+        top: 20%;
+    }
+    51% {
+        left: 111%;
+        transform: rotate(180deg);
+        
+    }
+
+    60% {
+        left: 60%;
+    }
+    71% {
+        
+        left: 61%;
+        top: 10%;
+    }
+    90% {
+        left: -1%;
+    }
+    100% {
+        left: -20%;
+        transform: rotate(180deg);
+
+    }
+
+}
+
+@keyframes fish3 {
+
+    0% {
+        /* background-position: 0% 50%; */
+        /* transition: 10% 40%; */
+        left: -2%;
+    }
+    20% {
+        left: 30%;
+    }
+    50% {
+        left: 60%;
+        transform: rotate(0deg);
+        top: 20%;
+    }
+    100% {
+        left: 111%;
+        /* transform: rotate(180deg); */
+        
+    }
+}
