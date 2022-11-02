@@ -7,14 +7,16 @@ body {
     margin: 0;
     font-family: "Arial", "Helvetica", sans-serif;
 
-}
+
 /*  добавление градиента */
-body {
+
     background: linear-gradient(-65deg, #23004b, #064db7, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     /* background-image:url(/img/5ff5278c7344d01df287c64240e77170.png); */
     animation: gradient 6s ease infinite;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* position: relative; */
+    /* max-height: 100vh; */
 }
 
 @keyframes gradient {

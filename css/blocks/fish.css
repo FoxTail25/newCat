@@ -11,12 +11,12 @@
 }
 
 .f1 {
-    top: 12vh;
+    top: 70px;
     left: 10%;
     color: gold;
     font-size: 50px;
-    animation: fish 23s ease infinite;
-    /* animation: fish 23s ease infinite; */
+    animation: fish 13s ease infinite;
+    /* display: block; */
 }
 
 
@@ -58,61 +58,59 @@
 
 
 
-/* .fish2 {
-    position: absolute;
-    top: 46vh;
-    left: 10%;
-    z-index: 2;
-    background-size: cover;
-    width: 140px;
-    height: 110px;
-    color: gold;
-    animation: fish2 9s ease infinite;
-} */
 
 @keyframes fish {
-
+    
     0% {
         /* background-position: 0% 50%; */
         /* transition: 10% 40%; */
-        left: -10%;
-        top: 20%;
+        left: 0%;
+        /* top: 20%; */
     }
     10% {
         /* background-position: 50% 100%; */
         /* transition: 100% 50%; */
-        left: 46%;
-        top: 60%;
+        left: 10%;
+        /* top: 60%; */
     }
-    20%{
-        left: 50%;
-
+    30%{
+        /* left: 50%; */
+        transform: scaleX(-1);
+        
         /* transform: scale(.5); */
+        left:30%;
 
     }
-    50% {
-        overflow: hidden;
-        left:110%;
+    40% {
+        left: 60%;
+        /* overflow: hidden; */
         transform: rotate(0deg);
         /* background-position: 0% 50%; */
         /* transition: 0% 50%; */
     }
     51% {
-        transform: rotate(180deg);
+        /* transform: rotate(180deg); */
+        /* transform: rotate(180deg); */
+        left:75%;
     }
-    53% {
-        left: 105%;
+    59% {
+        transform: scaleX(-1);
+        left:80%;
+        /* left: 100%; */
+        top:400px;
+        
     }
     
     70% {
-        overflow: hidden;
-        left:70%;
+        top:60px;
+        left:80%;
+        /* overflow: hidden; */
         /* background-position: 0% 50%; */
         /* transition: 0% 50%; */
     }
-    100% {left: -30%;
-        top: 20%;
-        transform: rotate(180deg);
+    100% {
+        left: 50%;
+        top: -120%;
         
     }
 }
@@ -121,19 +119,21 @@
     0% {
         /* background-position: 0% 50%; */
         /* transition: 10% 40%; */
-        left: -2%;
+        left: -0%;
+        top: 60%;
     }
     20% {
         left: 20%;
     }
     50% {
-        left: 110%;
+        left: 70%;
         transform: rotate(0deg);
         top: 20%;
     }
     51% {
-        left: 111%;
-        transform: rotate(180deg);
+        left: 80%;
+        /* transform: rotate(180deg); */
+        transform: scaleX(-1);
         
     }
 
@@ -146,11 +146,10 @@
         top: 10%;
     }
     90% {
-        left: -1%;
+        left: -0%;
     }
     100% {
-        left: -20%;
-        transform: rotate(180deg);
+        left: -0%;
 
     }
 
@@ -161,19 +160,20 @@
     0% {
         /* background-position: 0% 50%; */
         /* transition: 10% 40%; */
-        left: -2%;
+        left: -0%;
     }
     20% {
         left: 30%;
     }
     50% {
-        left: 60%;
-        transform: rotate(0deg);
+        left: 80%;
+        transform: scale(-1);
+        /* transform: rotate(0deg); */
         top: 20%;
     }
     100% {
-        left: 111%;
-        /* transform: rotate(180deg); */
+        left: 40%;
+        top: 130%;
         
     }
 }
