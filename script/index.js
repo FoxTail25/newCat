@@ -123,13 +123,13 @@ function refreshDate(min) {
     const setTime = new Date(new Date().getTime() + min * 6000)
     localStorage.setItem('dataRefresh', setTime)
 }
-
+let firstLoad = 0;
 function checkLocalStorage() {
 
     const getTimeAgo = localStorage.getItem('dataRefresh')
     const localData = JSON.parse(localStorage.getItem('cats'));
 
-    if (localData && localData.length && (new Date() < new Date(getTimeAgo))) {
+    if (localData && localData.length && (new Date() < new Date(getTimeAgo)) && firstLoad > 0) {
         localData.forEach(function (el) {
             createCat(el)
         })
@@ -145,6 +145,7 @@ function checkLocalStorage() {
             })
             
     }
+    firstLoad++
 }
 
 checkLocalStorage()
