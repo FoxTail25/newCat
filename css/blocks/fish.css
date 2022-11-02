@@ -7,7 +7,7 @@
     height: initial;
     color: gold;
     font-size: 50px;
-    animation: fish 23s ease infinite;
+    animation: fish 21s ease infinite;
 }
 
 .f1 {
@@ -15,7 +15,7 @@
     left: 10%;
     color: gold;
     font-size: 50px;
-    animation: fish 13s ease infinite;
+    animation: fish 17s ease infinite;
     /* display: block; */
 }
 
@@ -46,14 +46,28 @@
     left: 10%;
     color: rgb(236, 236, 236);
     font-size: 50px;
-    animation: fish3 8s ease infinite;
+    animation: fish3 18s ease infinite;
 }
 .f6 {
-    top: 32vh;
+    top: 62vh;
     left: 10%;
     color: rgb(243, 251, 1);
     font-size: 50px;
     animation: fish3 25s ease infinite;
+}
+.f7 {
+    top: 82vh;
+    left: -10%;
+    color: rgb(243, 251, 1);
+    font-size: 50px;
+    animation: fish4 15s ease infinite;
+}
+.f8 {
+    top: 42vh;
+    left: -10%;
+    color: rgb(243, 251, 1);
+    font-size: 50px;
+    animation: fish4 32s ease infinite;
 }
 
 
@@ -80,33 +94,29 @@
         left: 55vw;
         
     }
-    51% {
-        /* transform: rotate(180deg); */
-        /* transform: rotate(180deg); */
+    58% {
+        transform: rotate(0deg);
         /* left:75%; */
     }
     59% {
         left:55vw;
+        top: 50vh;
+        transform: rotate(180deg);
         /* left: 100%; */
         /* top:400px; */
         
     }
     69%{
         
-        transform: rotate(0deg);
+        /* transform: rotate(0deg); */
         transform: scaleX(-1);
     }
     
     70% {
         top: 206px;
-        /* top:60px; */
         left:45%;
-        /* overflow: hidden; */
-        /* background-position: 0% 50%; */
-        /* transition: 0% 50%; */
         transform: scaleX(-1);
         transform: rotate(360deg);
-        /* transform: scale(.5); */
     }
     85% {
         top: 120px;
@@ -115,17 +125,13 @@
     100% {
         transform: scaleX(-1);
         left: -20%;
-        /* transform: scaleX(1); */
-        /* transform: scale(1); */
-        top: -10px;
+        top: -300px;
         
     }
 }
 @keyframes fish2 {
 
     0% {
-        /* background-position: 0% 50%; */
-        /* transition: 10% 40%; */
         left: -20vw;
         top: 160px;
     }
@@ -169,7 +175,7 @@
     0% {
    
         left: -10vw;
-        top: 10vh;
+        top: 60vh;
     }
     20% {
         left: 35vw;
@@ -191,6 +197,40 @@
     }
     100% {
         transform: scale(-1);
+        left: -20vw;
+    }
+}
+
+@keyframes fish4 {
+
+    0% {
+   
+        left: -10vw;
+        top: 50vh;
+    }
+    20% {
+        left: 45vw;
+    }
+    49% {
+        left: 49vw;
+        
+    }
+    60% {
+        left: 30vw;
+        top: 60vh;
+    }
+    70%{
+        left: 6vw;
+        transform: scale(-1);
+        top: 63vh;
+    }
+    90% {
+        transform: scale(-1);
+        left: -10vw;
+    }
+    100% {
+        transform: scale(-1),rotate(360deg);
+        /* transform: ; */
         left: -20vw;
     }
 }
