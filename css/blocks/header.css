@@ -1,5 +1,5 @@
 .header {
-    box-shadow: 0 0 2px 0 var(--head-boxShadow-color);
+    box-shadow: 0 0 20px 0 var(--head-boxShadow-color);
     background-color: var(--head-bg-color);
     padding-top: 15px;
     padding-bottom: 15px;
@@ -14,7 +14,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* flex-wrap: wrap; */
 }
 
 @media (max-width: 500px) {
@@ -22,7 +21,4 @@
         font-size: 3;
         padding: 1vw;
     }
-
-
-
 }

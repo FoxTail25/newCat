@@ -2,15 +2,17 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight:bolder;
 }
 
 .socials__link {
     color: var(--socials-icon-color);
     font-size: 25px;
-    transition: ease-in-out .3s;
+    transition: ease-in-out .2s;
 }
 .socials__link:hover {
     color: var(--socials-iconHover-color);
-    /* font-size: 23px; */
-    transition: ease-in-out .3s;
+    transition: ease-in-out .1s;
+    /* box-shadow: 0 0 20px 0 white; */
+    filter: drop-shadow(0 0 10px rgb(11, 96, 166));
 }

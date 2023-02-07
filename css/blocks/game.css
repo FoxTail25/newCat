@@ -3,6 +3,16 @@
 }
 
 .count {
-    background: white;
+    background: rgb(255, 249, 187);
+    padding: 10px;
     z-index: 7;
+    border-radius: 10px;
+    margin: 0 auto;
+    transition: .2s;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+}
+.count:hover {
+    filter: drop-shadow(0 0 20px rgb(124, 182, 241));
+    transition: .2s;
 }

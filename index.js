@@ -14,9 +14,7 @@ import { Card } from "./card.js"
 import { handelFish } from "./game.js";
 
 function checkForm(elements) { //функция проверки сборки данных из формы
-    
     const formData = {};
-
     elements.forEach(input => {
         if (input.type === 'submit') return; // отсеивание сабмита
 
@@ -121,34 +119,18 @@ function handelFormRegCat(e) {
 
 
 
-function handelDeleteCat(e) {
-    e.preventDefault()
+function handelDeleteCat() {
+
     const elementsFormCat = [...formRegCat.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
-    // api.deleteCat()
 
-   console.log(dataFromForm.id)
+   console.log(localStorage.cats)
 
 
-    api.deleteCat(dataFromForm.id) //Удаление карточки котика с сервера.
-    .then((res)=>console.log(res));
-    // e.target.reset();
-    let cats = JSON.parse(localStorage.getItem('cats'))
-    console.log(cats)
-    let newCats = [];
-    for(let item of cats) {
-        if (item.id != dataFromForm.id) {
-            newCats.push(item)
-            
-        }
-    }
-    console.log(newCats)
-    newCats = JSON.stringify(newCats)
-    localStorage.removeItem('cats')
-    localStorage.setItem('cats', newCats)
-
+    // api.deleteCat(dataFromForm.id);
     popupRegCat.close();
-    
+
+
 
 }
 
@@ -156,7 +138,6 @@ function refreshDate(min) {
     const setTime = new Date(new Date().getTime() + min * 6000)
     localStorage.setItem('dataRefresh', setTime)
 }
-
 let firstLoad = 0;
 function checkLocalStorage() {
 
@@ -223,7 +204,7 @@ btnLogin.addEventListener('click', () => auth.open())
 
 ///// замена лого ////
 
-// logoLink.addEventListener('mouseover', () => changeOver())
-// logoLink.addEventListener('mouseleave', () => changeLiave())
+logoLink.addEventListener('mouseover', () => changeOver())
+logoLink.addEventListener('mouseleave', () => changeLiave())
 
 handelFish()

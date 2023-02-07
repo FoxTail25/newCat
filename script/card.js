@@ -1,6 +1,7 @@
 import { popupInfoCat, popupRegCat } from "./index.js";
 
 export class Card {
+    
     constructor(dataCat, selectorTemplate ) {
         this._data = dataCat;
         this._selectorTemplate = selectorTemplate;
