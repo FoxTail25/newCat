@@ -16,7 +16,6 @@
     color: gold;
     font-size: 50px;
     animation: fish 17s ease infinite;
-    /* display: block; */
 }
 
 
@@ -76,17 +75,11 @@
 @keyframes fish {
     
     0% {
-        /* background-position: 0% 50%; */
-        /* transition: 10% 40%; */
         left: -18vw;
-        /* top: 20%; */
     }
     
     30%{
-        /* left: 50%; */
-        /* transform: scaleX(-1); */
-        
-        /* transform: scale(.5); */
+
         left:30vw;
         
     }
@@ -96,19 +89,15 @@
     }
     58% {
         transform: rotate(0deg);
-        /* left:75%; */
     }
     59% {
         left:55vw;
         top: 50vh;
         transform: rotate(180deg);
-        /* left: 100%; */
-        /* top:400px; */
         
     }
     69%{
         
-        /* transform: rotate(0deg); */
         transform: scaleX(-1);
     }
     
@@ -145,8 +134,6 @@
     }
     51% {
         transform: scaleX(1);
-        /* left: 80%; */
-        
     }
     
     60% {
@@ -232,7 +219,6 @@
     }
     100% {
         transform: scale(-1),rotate(360deg);
-        /* transform: ; */
         left: -20vw;
     }
 }

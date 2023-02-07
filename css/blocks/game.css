@@ -4,15 +4,21 @@
 
 .count {
     background: rgb(255, 249, 187);
-    padding: 10px;
-    z-index: 7;
+    padding: 5px 10px;
+    z-index: 4;
     border-radius: 10px;
     margin: 0 auto;
     transition: .2s;
     font-family: 'Caveat', cursive;
     font-weight: 600;
+    min-height: 20px;
 }
 .count:hover {
-    filter: drop-shadow(0 0 20px rgb(124, 182, 241));
+    filter: drop-shadow(0 0 20px rgb(224, 210, 11));
     transition: .2s;
+}
+
+.fish_for_count {
+    margin-left: 5px;
+    transform: rotate(180deg);
 }
