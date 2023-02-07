@@ -1,7 +1,6 @@
 
 const cardContainer = document.querySelector('.cards'); // Контейнер, куда добавляем котиков из массива
 const btnAddCat = document.querySelector('#add') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
-// const btnRegCat = document.querySelector('#reg') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 const btnLogin = document.querySelector('#btnAuth') // кнопка на которую вешаем слушатель для открытия ПопАпа для добавления нового котика
 const formAddCat = document.querySelector('#popup-form-add-cat') //доступ к форме с данными
 const formLogin = document.querySelector('#popup-form-login') //доступ к форме авторизации
@@ -14,7 +13,7 @@ import { Card } from "./card.js"
 import { handelFish } from "./game.js";
 
 function checkForm(elements) { //функция проверки сборки данных из формы
-    
+
     const formData = {};
 
     elements.forEach(input => {
@@ -31,10 +30,10 @@ function checkForm(elements) { //функция проверки сборки д
     return formData
 }
 
-// console.log(elementsFotmCat)
 
 
 function handelFormLogin(e) {
+
     e.preventDefault()
 
     const elementsFormCat = [...formLogin.elements]; //получаем массив элементов формы
@@ -51,7 +50,7 @@ function handelFormAddCat(e) {
 
     const elementsFormCat = [...formAddCat.elements]; //получаем массив элементов формы
     const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
-    console.log(dataFromForm)
+    // console.log(dataFromForm)
 
     // console.log("ничего не отправляем")
     api.addNewCat(dataFromForm)
@@ -85,28 +84,28 @@ function handelFormRegCat(e) {
 
 
 
-        for (let i in dataFromForm) {
-    
-            // console.log(b[i], dataFromForm[i])
-            if (dataFromForm[i] != catIdFromLocalStoradge[i]) {
-                catIdFromLocalStoradge[i] = dataFromForm[i]
-    
-                catsInlocalStorage[catIdFromLocalStoradge] = catIdFromLocalStoradge
-                let c = JSON.stringify(catsInlocalStorage)
-                console.log(catsInlocalStorage)
-                localStorage.setItem('cats', JSON.stringify(catsInlocalStorage)) //сохранить в локалСторадж изменения
-    
-                let a = document.querySelector('.cards')
-                a.innerHTML = '' // очистить контейнер с карточками
-    
-                const newLocalData = JSON.parse(localStorage.getItem('cats')); // наполнить контейнер заново
-                newLocalData.forEach(function (el) {
-                    createCat(el)
-                })
-    
-            }
+    for (let i in dataFromForm) {
+
+        // console.log(b[i], dataFromForm[i])
+        if (dataFromForm[i] != catIdFromLocalStoradge[i]) {
+            catIdFromLocalStoradge[i] = dataFromForm[i]
+
+            catsInlocalStorage[catIdFromLocalStoradge] = catIdFromLocalStoradge
+            let c = JSON.stringify(catsInlocalStorage)
+            console.log(catsInlocalStorage)
+            localStorage.setItem('cats', JSON.stringify(catsInlocalStorage)) //сохранить в локалСторадж изменения
+
+            let a = document.querySelector('.cards')
+            a.innerHTML = '' // очистить контейнер с карточками
+
+            const newLocalData = JSON.parse(localStorage.getItem('cats')); // наполнить контейнер заново
+            newLocalData.forEach(function (el) {
+                createCat(el)
+            })
+
         }
-    
+    }
+
 
 
 
@@ -123,23 +122,24 @@ function handelFormRegCat(e) {
 
 function handelDeleteCat(e) {
     e.preventDefault()
-    const elementsFormCat = [...formRegCat.elements]; //получаем массив элементов формы
-    const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
+    // const elementsFormCat = [...formRegCat.elements]; //получаем массив элементов формы
+    // const dataFromForm = checkForm(elementsFormCat) // запускаем функцию проверки формы
     // api.deleteCat()
 
-   console.log(dataFromForm.id)
+    // console.log(dataFromForm.id)
+    const catId = e.target.parentElement[0].value;
+    console.log(catId)
 
+    api.deleteCat(catId) //Удаление карточки котика с сервера.
+        .then((res) => console.log(res));
 
-    api.deleteCat(dataFromForm.id) //Удаление карточки котика с сервера.
-    .then((res)=>console.log(res));
-    // e.target.reset();
     let cats = JSON.parse(localStorage.getItem('cats'))
     console.log(cats)
     let newCats = [];
-    for(let item of cats) {
-        if (item.id != dataFromForm.id) {
+    for (let item of cats) {
+        if (item.id != catId) {
             newCats.push(item)
-            
+
         }
     }
     console.log(newCats)
@@ -147,8 +147,16 @@ function handelDeleteCat(e) {
     localStorage.removeItem('cats')
     localStorage.setItem('cats', newCats)
 
+    let a = document.querySelector('.cards')
+    a.innerHTML = '' // очистить контейнер с карточками
+    const newLocalData = JSON.parse(localStorage.getItem('cats')); // наполнить контейнер заново
+    newLocalData.forEach(function (el) {
+        createCat(el)
+    })
+
+
     popupRegCat.close();
-    
+
 
 }
 
@@ -158,28 +166,35 @@ function refreshDate(min) {
 }
 
 let firstLoad = 0;
+
 function checkLocalStorage() {
 
-    const getTimeAgo = localStorage.getItem('dataRefresh')
+    const getTimeAgo = localStorage.getItem('dataRefresh');
     const localData = JSON.parse(localStorage.getItem('cats'));
 
-    if (localData && localData.length && (new Date() < new Date(getTimeAgo)) && firstLoad > 0) {
+    // console.log(localData, "первая проверка локалСторадж")
+    // if (localData && localData.length && (new Date() > new Date(getTimeAgo)) && firstLoad > 0) {
+    if (firstLoad > 0) {
         localData.forEach(function (el) {
             createCat(el)
-        })
+        });
+        // console.log(firstLoad, "загрузка из локалСторадж")
     } else {
         api.getAllCats()
             .then(({ data }) => {
                 data.forEach(function (el) {
                     createCat(el);
-
                 })
+                // console.log(data)
+                // console.log(localData, "отработал апи")
+                firstLoad++
+                // console.log(firstLoad,"Загрузка из апи")
                 localStorage.setItem('cats', JSON.stringify(data))
+                // console.log(localData, "данные из апи занесены в локалСторадж")
                 refreshDate(30)
             })
 
     }
-    firstLoad++
 }
 
 checkLocalStorage()
@@ -188,12 +203,12 @@ checkLocalStorage()
 
 function createCat(catData) {
 
-
     const cardInstans = new Card(catData, '#card-template')// создать карточку из данных
     const newCardElement = cardInstans.getElement();
 
     cardContainer.append(newCardElement)// добавить карточку на страницу
 }
+
 
 
 // ПопАп /////////////////////////////////////////////////////////
@@ -217,13 +232,7 @@ formRegCat.addEventListener('submit', handelFormRegCat)
 btn_deleteCat.addEventListener('click', handelDeleteCat,)
 
 
-
 btnLogin.addEventListener('click', () => auth.open())
 
-
-///// замена лого ////
-
-// logoLink.addEventListener('mouseover', () => changeOver())
-// logoLink.addEventListener('mouseleave', () => changeLiave())
 
 handelFish()
