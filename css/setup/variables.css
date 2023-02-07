@@ -2,7 +2,7 @@
 
 :root {
     --head-boxShadow-color:black;
-    --head-bg-color: rgba(240, 240, 240, 0.9);
+    --head-bg-color: rgba(240, 240, 240, .4);
 
     --btn-bg-color:rgba(6, 14, 160, 0.8);
     --btn-text-color:white;
@@ -14,7 +14,7 @@
     --card-like-color: #CE2724;
     
     --copyright-text-color: rgb(9, 9, 9);
-    --footer-bg-color: rgb(240, 240, 240, 0.9);
+    --footer-bg-color: rgb(240, 240, 240, .4);
     --footer-boxShadow-color:black;
     --socials-icon-color:black;
     --socials-iconHover-color:blue;

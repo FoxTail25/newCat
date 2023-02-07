@@ -7,7 +7,9 @@ export const formRegCat = document.querySelector('#popup-form-reg-cat') //дос
 
 
 export class Popup {
+
     constructor(className) {
+
         this._className = className;
         this.popup = document.querySelector(`.${className}`)
         this._handleEscUp = this._handleEscUp.bind(this)
@@ -21,53 +23,51 @@ export class Popup {
 
     _handleEscUp(evt) {
         // console.log(evt.key === 'Escape')
-        if(evt.key === 'Escape') {
+        if (evt.key === 'Escape') {
 
             this.close()
         }
     }
 
-
     open(cardData, flag) {
         const isAuth = Cookies.get('email');
-    // 
-        if(this._className != 'popup-login' && this._className != 'popup-info-cats' &&  !isAuth) {
+
+
+        if (this._className != 'popup-login' && this._className != 'popup-info-cats' && !isAuth) {
 
             alert('Для добавления и изменения данных необходима авторизация')
-            popupAddCat.close()
-            popupRegCat.close()
-            auth.open()
-   
+            
         } else if (cardData && flag === 'info') {
-         console.log(this._className)
+            
+            console.log(this._className)
             const elementsFormCat = [...formInfoCat.elements];
-            for( let i of elementsFormCat){
+            
+            for (let i of elementsFormCat) {
                 i.value = '';
                 i.value += `${i.placeholder}: ${cardData[i.name]}`
+                
+                this._cardInfoImage.style.backgroundImage = `url(${cardData.img_link})`
+                
+                this.popup.classList.add('popup_active');
+                document.addEventListener('keyup', this._handleEscUp)
+            }
+            
+        } else if (cardData && flag === 'reg') {
+            
+            const elementsFormCat = [...formRegCat.elements];
+            for (let i of elementsFormCat) {
+                i.value = '';
+                i.value = `${cardData[i.name]}`
+            }
+            
+            this._cardRegImage.style.backgroundImage = `url(${cardData.img_link})`
+            this.popup.classList.add('popup_active');
+            document.addEventListener('keyup', this._handleEscUp)
+            
+        } else {
+            
+            // console.log('reg')
 
-            this._cardInfoImage.style.backgroundImage = `url(${cardData.img_link})`
-            
-            
-            
-            this.popup.classList.add('popup_active');
-            document.addEventListener('keyup', this._handleEscUp)
-        }
-        
-    } else if (cardData && flag === 'reg') {
-        
-        const elementsFormCat = [...formRegCat.elements];
-        for( let i of elementsFormCat){
-            i.value = '';
-            i.value = `${cardData[i.name]}`
-        }
-        
-        
-        
-        this._cardRegImage.style.backgroundImage = `url(${cardData.img_link})`
-            this.popup.classList.add('popup_active');
-            document.addEventListener('keyup', this._handleEscUp)
-        }else {
-            
             this.popup.classList.add('popup_active');
             document.addEventListener('keyup', this._handleEscUp)
         }
@@ -75,15 +75,17 @@ export class Popup {
     }
 
     close() {
+
         this.popup.classList.remove('popup_active');
         document.removeEventListener('keyup', this._handleEscUp)
 
     }
-    
 
-    setEventListener(){
+
+    setEventListener() {
+
         this.popup.addEventListener('click', (evt) => {
-            if(evt.target.classList.contains(this._className) || !!evt.target.closest('.popup__close')){
+            if (evt.target.classList.contains(this._className) || !!evt.target.closest('.popup__close')) {
                 this.close()
             }
         })
