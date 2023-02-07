@@ -22,7 +22,6 @@
 
         <div class="container header__container">
 
-
             <button class="btn" id="add" title="Добавить своего котика на сайт">
                 <div href="#" class="logo">
                     <i id='logo' class="fa-solid fa-cat"></i>
@@ -49,8 +48,6 @@
 
     <main class="main container">
 
-        <div class="fish f1"><i class="fa-solid fa-fish-fins"></i></div>
-
         <section class="cards">
 
             <h2 class="visually-hidden">Список котиков</h2>
@@ -70,12 +67,12 @@
 
                 <nav>
 
-                    <a class="socials__link" target="_blank" href="mailto:foxtail25@gmail.com"><i
-                            class="fa-solid fa-at socials__icon"></i></a>
-                    <a class="socials__link" target="_blank" href="https://vk.com/id16443801"><i
-                            class="fa-brands fa-vk socials__icon"></i></a>
-                    <a class="socials__link" target="_blank" href="https://t.me/Siverk"><i
-                            class="fa-brands fa-telegram socials__icon"></i></a>
+                    <a class="socials__link" target="_blank" href="mailto:foxtail25@gmail.com">
+                        <i class="fa-solid fa-at socials__icon"></i></a>
+                    <a class="socials__link" target="_blank" href="https://github.com/FoxTail25">
+                        <i class="fa-brands fa-github"></i></a>
+                    <a class="socials__link" target="_blank" href="https://t.me/Siverk">
+                        <i class="fa-brands fa-telegram socials__icon"></i></a>
 
                 </nav>
 
@@ -137,22 +134,28 @@
 
 
     <div class="popup popup-info-cats">
-        <div class="popup__container popup__container-info-cat">
+        <div class="popup__container ">
             <button class="popup__close btn" id="popupInfoClose"><i class="fa-solid fa-xmark"></i></button>
             <form class="form-info" id="popup-form-info-cat">
                 <div class="form-info-img"></div>
 
                 <input type="text" class="form__input-info" name="age" placeholder="Возраст" readonly="readonly">
+
                 <input id='inputNameInfoCat' type="text" class="form__input-info" name="name" required placeholder="Имя"
                     readonly="readonly">
+
                 <input type="text" class="form__input-info" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10"
                     readonly="readonly">
+
                 <textarea name="description" class="form__input-info form__textarea-info" placeholder="Описание"
                     readonly="readonly" cols="30" rows="3" resize="none"></textarea>
+
                 <label class="form__checkbox-wrap">
                     <input type="checkbox" name="favourite" class="form__checkbox " placeholder="" readonly="readonly"
                         disabled>
+
                     <span class="form__label">Like</span>
+                    
                     <span class="form__fake-checkbox"><i class="fa-regular fa-circle-check"></i></span>
                 </label>
             </form>
@@ -166,7 +169,7 @@
             <form class="form" id="popup-form-login">
 
                 <input type="email" class="form__input" name="email" required placeholder="email">
-                <input type="password" class="form__input" name="password" placeholder="пароль">
+                <input type="password" class="form__input" autoComplete="on" name="password" placeholder="пароль">
                 <button type="submit" class="form__btn btn">Войти</button>
             </form>
         </div>
@@ -203,7 +206,7 @@
     <div class="fish f7"><i class="fa-solid fa-fish-fins"></i></div>
     <div class="fish f8"><i class="fa-solid fa-fish-fins"></i></div>
 
-    <script src="./script/animLogo.js" defer></script>
+    <!-- <script src="./script/animLogo.js" defer></script> -->
     <script type='module' src="script/index.js" defer></script>
     <!-- <script type='module' src="index.js" defer></script> -->
 
