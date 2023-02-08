@@ -39,12 +39,13 @@ export class Popup {
             
         } else if (cardData && flag === 'info') {
             
-            console.log(this._className)
             const elementsFormCat = [...formInfoCat.elements];
+
+            console.log(elementsFormCat, cardData)
             
             for (let i of elementsFormCat) {
                 i.value = '';
-                i.value += `${i.placeholder}: ${cardData[i.name]}`
+                i.value += `${cardData[i.name]}`
                 
                 this._cardInfoImage.style.backgroundImage = `url(${cardData.img_link})`
                 
@@ -52,7 +53,7 @@ export class Popup {
                 document.addEventListener('keyup', this._handleEscUp)
             }
             
-        } else if (cardData && flag === 'reg') {
+        } else if (isAuth && cardData && flag === 'reg' ) {
             
             const elementsFormCat = [...formRegCat.elements];
             for (let i of elementsFormCat) {
@@ -66,7 +67,6 @@ export class Popup {
             
         } else {
             
-            // console.log('reg')
 
             this.popup.classList.add('popup_active');
             document.addEventListener('keyup', this._handleEscUp)

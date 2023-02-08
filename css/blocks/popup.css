@@ -24,16 +24,18 @@
     background-color: var(--form-color);
     padding: 20px;
     position: relative;
+    border-radius: 16px;
 }
 
 .popup__close {
     position: absolute;
     top: -10px;
     right: -10px;
-    background: rgb(100, 1, 1);
+    background: rgb(179, 5, 5);
 }
 .popup__close:hover {
-background: red;
+background: rgb(255, 60, 60);
+box-shadow: 0 0 20px 0 rgb(250, 0, 42);
 }
 
 .popup__close_external {
@@ -47,4 +49,18 @@ background: red;
 .popup__image {
     max-width: 100%;
     max-height: 100%;
+}
+
+@media (max-width: 700px) {
+
+    .popup__container {
+        width: 80%;
+        text-align: center;
+    }
+    
+    #popup-form-login {
+        display: flex;
+        flex-direction: column;
+     
+    }
 }

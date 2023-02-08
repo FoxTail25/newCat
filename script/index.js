@@ -92,7 +92,7 @@ function handelFormRegCat(e) {
 
             catsInlocalStorage[catIdFromLocalStoradge] = catIdFromLocalStoradge
             let c = JSON.stringify(catsInlocalStorage)
-            console.log(catsInlocalStorage)
+            // console.log(catsInlocalStorage)
             localStorage.setItem('cats', JSON.stringify(catsInlocalStorage)) //сохранить в локалСторадж изменения
 
             let a = document.querySelector('.cards')
@@ -172,25 +172,19 @@ function checkLocalStorage() {
     const getTimeAgo = localStorage.getItem('dataRefresh');
     const localData = JSON.parse(localStorage.getItem('cats'));
 
-    // console.log(localData, "первая проверка локалСторадж")
     // if (localData && localData.length && (new Date() > new Date(getTimeAgo)) && firstLoad > 0) {
     if (firstLoad > 0) {
         localData.forEach(function (el) {
             createCat(el)
         });
-        // console.log(firstLoad, "загрузка из локалСторадж")
     } else {
         api.getAllCats()
             .then(({ data }) => {
                 data.forEach(function (el) {
                     createCat(el);
                 })
-                // console.log(data)
-                // console.log(localData, "отработал апи")
                 firstLoad++
-                // console.log(firstLoad,"Загрузка из апи")
                 localStorage.setItem('cats', JSON.stringify(data))
-                // console.log(localData, "данные из апи занесены в локалСторадж")
                 refreshDate(30)
             })
 

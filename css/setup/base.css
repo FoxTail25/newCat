@@ -10,20 +10,20 @@ body {
 
 /*  добавление градиента */
 
-    background: linear-gradient(-65deg,#0a0014,#190036,#003380, #23004b, #064db7, #23a6d5,#0250c5, #23d5ab);
+    background: linear-gradient(-65deg,#3304ec,#0d003b,#003380, #080036, #064db7, #23a6d5,#0250c5, #002135);
     background-size: 400% 400%;
     animation: gradient 6s ease infinite;
 }
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 10%;
     }
     50% {
-        background-position: 100% 50%;
+        background-position: 90% 100%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 10%;
     }
 }
 

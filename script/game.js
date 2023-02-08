@@ -29,8 +29,7 @@ function count() {
     luckyFishCount.innerHTML = `<div> Вы поймали ${a} <i class="fa-solid fa-fish-fins fish_for_count"></i></div>`;
 
     switch (a) {
-        case 2: alert("Мои поздравления вы поймали больше одной рыбки!");
-            break
+      
         case 5: alert("Браво! Уже 5");
             break
         case 9: alert("9! Да вы прирожденный рыбак!");

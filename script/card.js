@@ -23,32 +23,15 @@ export class Card {
 
         cardTitle.textContent = this._data.name;
         cardImage.src = this._data.img_link;
-        // cardImage.alt = `img card id ${this._data.id}`;
         this.element.className = this.element.className + " " + `cardId${cardId}`
         cardImage.addEventListener('click', ()=> popupInfoCat.open(this._data, 'info')) // ставим слушатель на картинку
         cardTitle.addEventListener('click', ()=> popupRegCat.open(this._data, 'reg')) // ставим слушатель на имя
-        // cardLike.addEventListener('click', ()
         return this.element;
     }
 }
 
-// const card = new Card(cats[0], '#card-template').getElement()
-// cl(card)
-
-// const template = document.querySelector('#card-template').content.querySelector('.card');
-// console.dir(template) //console.dir () Отображает интерактивный список свойств указанного объекта JavaScript.
-
-
-function like() {
-    console.log(this)
-    //.querySelector())
-}
 
 
 
 
 
-
-// function cl(a){
-//     console.log(a)
-// }

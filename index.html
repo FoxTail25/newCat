@@ -89,7 +89,7 @@
             <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
             <h2 id="popupH2">Добавить котэ</h2>
             <form class="form" id="popup-form-add-cat">
-                <div class="form__image"></div>
+                <!-- <div class="form__image"></div> -->
 
                 <input id='inputIdAddCat' type="number" class="form__input" name="id" min="1" required placeholder="id">
                 <input type="number" class="form__input" name="age" placeholder="Возраст">
@@ -114,12 +114,21 @@
             <form class="form" id="popup-form-reg-cat">
                 <div class="form__image form-reg-img"></div>
 
-                <input id='inputIdRegCat' type="number" class="form__input" name="id" min="1" required placeholder="id"
-                    readonly="readonly">
+                <label>id<input id='inputIdRegCat' type="number" class="form__input" name="id" min="1" required placeholder="id"
+                    readonly="readonly"></label>
+                    <label>Возраст
                 <input type="number" class="form__input" name="age" placeholder="Возраст">
-                <input id='inputNameRegCat' type="text" class="form__input" name="name" required placeholder="Имя">
-                <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
-                <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+               </label>
+               <label>Имя
+                   <input id='inputNameRegCat' type="text" class="form__input" name="name" required placeholder="Имя">
+                </label>
+                <label>Рейтинг
+                    <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
+                </label>
+                <label>Описание
+                    <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+                </label>
+                    
                 <label class="form__checkbox-wrap">
                     <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
                     <span class="form__label">Like</span>
@@ -134,21 +143,25 @@
 
 
     <div class="popup popup-info-cats">
-        <div class="popup__container ">
+        <div class="popup__container">
             <button class="popup__close btn" id="popupInfoClose"><i class="fa-solid fa-xmark"></i></button>
             <form class="form-info" id="popup-form-info-cat">
-                <div class="form-info-img"></div>
-
+               
+                <div class="form__image form-info-img"></div>
+                <label>Возраст
                 <input type="text" class="form__input-info" name="age" placeholder="Возраст" readonly="readonly">
-
-                <input id='inputNameInfoCat' type="text" class="form__input-info" name="name" required placeholder="Имя"
-                    readonly="readonly">
-
+            </label>
+            <label>Имя
+                <input id='inputNameInfoCat' type="text" class="form__input-info" name="name" readonly="readonly">
+                </label>
+                <label>Рейтинг
                 <input type="text" class="form__input-info" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10"
                     readonly="readonly">
-
-                <textarea name="description" class="form__input-info form__textarea-info" placeholder="Описание"
+                </label>
+                <label>Описание
+                    <textarea name="description" class="form__input-info form__textarea-info" placeholder="Описание"
                     readonly="readonly" cols="30" rows="3" resize="none"></textarea>
+                </label>
 
                 <label class="form__checkbox-wrap">
                     <input type="checkbox" name="favourite" class="form__checkbox " placeholder="" readonly="readonly"
@@ -164,7 +177,7 @@
 
     <div class="popup popup-login">
         <div class="popup__container">
-            <button class="popup__close btn" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
+            <button class="btn popup__close" id="popupClose"><i class="fa-solid fa-xmark"></i></button>
             <h2 id="popupH2">Авторизация</h2>
             <form class="form" id="popup-form-login">
 
